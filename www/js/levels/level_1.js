@@ -53,6 +53,9 @@ var LEVEL_1 = {
         timer.repeat(1 * Phaser.Timer.SECOND, 7200, UpdateTime, this);
         timer.start();
 
+        // FPS TEXT
+        fpsText = game.add.text(200, 250, fpsString, style);
+
         // CURSORS
         cursors = game.input.keyboard.createCursorKeys();
 

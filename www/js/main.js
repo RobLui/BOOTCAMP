@@ -14,16 +14,20 @@ var time;
 var timer;
 var timeString;
 
+var fpsString;
+var fpsText;
+
 var currentTime;
 var nextTime;
 
+var deltaTime;
 
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
 // DEVICE ORIENTATION
 function HandleOrientation(e)
 {
-  deltaTime = (game.time.elapsedMS);
+  deltaTime = Math.abs(game.time.elapsedMS);
   var x = e.gamma;
   var y = e.beta;
   bal.body.velocity.x = x * speed * deltaTime;
@@ -38,16 +42,20 @@ function UpdateTime()
   // var minutes = time.getMinutes();
   var sec = time.getSeconds();
   var ms = time.getMilliseconds();
+
   timeString =   sec - ms;
   timeText.text = timeString;
-  return timeString;
+
+  fpsString = game.time.fps;
+  fpsText.text = fpsString;
+  console.log(deltaTime);
 }
 
 // DECREASE HEALTH
 function Decreasehealth(){
   health--;
   healthtext.text=health;
-  if("vibrate" in window.navigator)
+  if( "vibrate" in window.navigator)
   {
       window.navigator.vibrate(100);
   }
@@ -64,12 +72,8 @@ function Laserhit(bal,laser)
 {
   if(laser.animations.frame==0)
   {
-    if (!currentTime == nextTime ) {
       Decreasehealth();
-      console.log(currentTime + " " + nextTime);
-      currentTime == nextTime;
-    }
-    UpdateTime();
+      UpdateTime();
   }
 }
 
