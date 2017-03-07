@@ -56,14 +56,12 @@ var PlayGame = {
             game.physics.arcade.enable(enemy);
             enemy.anchor.y=0.5;
             enemy.anchor.x=0.5;
-            tweenEnemy = game.add.tween(enemy).to({y:600 },3000 , Phaser.Easing.Linear.None,true,0,-1,true);
-
+            enemy.body.mass=10;
             // Bal
             bal     = game.add.sprite(50, 50, "bal");
             game.physics.arcade.enable(bal);
             bal.enableBody=true;
             bal.body.collideWorldBounds = true;
-
             // Winning hole
             winningHole   = game.add.sprite(525,725,"winningHole");
             winningHole.enableBody=true;
@@ -140,7 +138,24 @@ var PlayGame = {
     game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
     // Enemy
     game.physics.arcade.overlap(hole, enemy,this.enemyhit,null,this);
-  }
+    this.EnemyTween();
+    game.physics.arcade.collide(enemy, layer);
+    if(game.physics.arcade.collide(enemy, bal))
+    {
+        this.decreasehealth();
+    }
+},
+EnemyTween: function()
+{
+    if(enemy.body.position.y<=262.5)
+    {
+        enemy.body.velocity.y= +50;
+    }
+    if(enemy.body.position.y>=600)
+    {
+        enemy.body.velocity.y = -50;
+    }
+}
 };
 
 var menuState = {
