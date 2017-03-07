@@ -65,7 +65,11 @@ function Decreasehealth(){
 // ENEMYHIT
 function Enemyhit(bal,enemy)
 {
-  Decreasehealth();
+  if (TimeChecker() > waitingTime )
+  {
+    Decreasehealth();
+  }
+  lastEventTrackedTime = game.time.time;
 }
 
 // LASERHIT
@@ -88,8 +92,15 @@ function Wingame()
 // HOLEHIT
 function Holehit(bal,hole)
 {
+
+  if (elapsedTime > waitingTime ) {
+    health--;
+    if (health == death) {
+      health = 3;
+      game.state.start('game');
+    }
+  }
   healthtext.text = health;
-  game.state.start('game');
 }
 
 // ENEMYTWEEN & HEALTH

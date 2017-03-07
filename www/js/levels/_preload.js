@@ -2,7 +2,6 @@ var PreloadState = {
     preload: function() {
         game.load.image('tileset','assets/tileset.png');
         game.load.image("bal", "assets/bal.png");
-        game.load.image('back','assets/back_button.png');
         game.load.image('hole','assets/hole.png');
         game.load.image('logo', 'assets/logo.png');
         game.load.image('bg', 'assets/bg.jpg');
