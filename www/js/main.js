@@ -19,15 +19,12 @@ var PreloadState = {
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image('logo', 'assets/logo.png');
-        game.load.image('bg', 'assets/bg.jpg');
         game.load.image('play','assets/play.png');
         game.load.image('what','assets/what.png');
 
         game.load.image('winningHole','assets/winningHole.png');
         game.load.image('enemy','assets/enemy.png');
         game.load.image('bg', 'assets/bg.jpg');
-        game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.spritesheet("laser","assets/laser.png",50,20,2);
 
         game.time.advancedTiming.enable = true;
     },
@@ -62,11 +59,13 @@ var PlayGame = {
             enemy.anchor.y=0.5;
             enemy.anchor.x=0.5;
             enemy.body.mass=10;
+
             // Bal
             bal     = game.add.sprite(50, 50, "bal");
             game.physics.arcade.enable(bal);
             bal.enableBody=true;
             bal.body.collideWorldBounds = true;
+
             // Winning hole
             winningHole   = game.add.sprite(525,725,"winningHole");
             winningHole.enableBody=true;
@@ -177,9 +176,6 @@ var PlayGame = {
         {
             window.navigator.vibrate(100);
         }
-<<<<<<< HEAD
-  }
-=======
   },
   update: function()
   {
@@ -210,7 +206,6 @@ EnemyTween: function()
         enemy.body.velocity.y = -50;
     }
 }
->>>>>>> origin/master
 };
 
 var menuState = {
