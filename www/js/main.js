@@ -12,13 +12,14 @@ var PreloadState = {
         game.load.image('start','assets/start_button.png');
         game.load.image('instruction','assets/instruction_button.png');
         game.load.image('back','assets/back_button.png');
+        game.load.image('hole','assets/hole.png');
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.stage.backgroundColor = '#0ad100';
         game.time.advancedTiming.enable = true;
     },
     create: function() {
-        game.state.start("menu");
+        game.state.start("game");
     }
 };
 // PLAYGAME
@@ -38,9 +39,11 @@ var PlayGame = {
             bal.enableBody=true;
             bal.body.collideWorldBounds = true;
             // Hole
-            hole   = game.add.sprite(250,100,"hole");
+            hole   = game.add.sprite(220,375,"hole");
             hole.enableBody=true;
             game.physics.arcade.enable(hole);
+            hole.anchor.y=0.5;
+            hole.anchor.x=0.5;
             // Map
             map = game.add.tilemap('map');
             map.addTilesetImage('tileset', 'tileset');
@@ -95,7 +98,9 @@ var PlayGame = {
   update: function()
   {
     this.cursorMovement();
+    // Laser hit
     game.physics.arcade.overlap(bal,laser,this.laserhit,null,this);
+    //Bounce to walls
     game.physics.arcade.collide(layer, bal);
     // Hole
     game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
