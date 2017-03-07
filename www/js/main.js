@@ -9,19 +9,19 @@ var PreloadState = {
     preload: function() {
         game.load.image("bal", "assets/bal.png");
         game.load.image('tileset','assets/tileset.png');
-        game.load.image('start','assets/start_button.png');
-        game.load.image('instruction','assets/instruction_button.png');
         game.load.image('back','assets/back_button.png');
         game.load.image('hole','assets/hole.png');
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.stage.backgroundColor = '#0ad100';
-
+        game.load.image('logo', 'assets/logo.png');
         game.load.image('bg', 'assets/bg.jpg');
+        game.load.image('play','assets/play.png');
+        game.load.image('what','assets/what.png');
         game.time.advancedTiming.enable = true;
     },
     create: function() {
-        game.state.start("game");
+        game.state.start("menu");
     }
 };
 // PLAYGAME
@@ -113,11 +113,16 @@ var PlayGame = {
 var menuState = {
     create: function() {
 
-        var nameLabel = game.add.text(game.world.centerX, game.world.centerY-200, "The Supermaze", {font: '5Em Arial', fill: '#ffffff'});
-        startBtn = game.add.button(game.world.centerX, game.world.centerY, 'start', this.start, this);
-        instrBtn = game.add.button(game.world.centerX, game.world.centerY+200, 'instruction', this.instruction, this);
-        game.add.image(0, 0, 'bg');
-        nameLabel.anchor.x=0.5;
+      game.add.image(0, 0, 'bg');
+      game.add.image(0, 0, 'logo');
+
+
+        startBtn = game.add.button(game.world.centerX , game.world.centerY+50, 'play', this.start, this);
+        instrBtn = game.add.button(game.world.centerX , game.world.centerY+250, 'what', this.instruction, this);
+
+        startBtn.scale.setTo(0.4,0.4);
+        instrBtn.scale.setTo(0.3,0.3);
+
         startBtn.anchor.x=0.5;
         instrBtn.anchor.x=0.5;
     },
