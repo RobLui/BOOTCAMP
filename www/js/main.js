@@ -11,21 +11,20 @@ var PreloadState = {
         game.load.image('tileset','assets/tileset.png');
         game.load.image('back','assets/back_button.png');
         game.load.image('hole','assets/hole.png');
-<<<<<<< HEAD
+
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
-        game.stage.backgroundColor = '#0ad100';
         game.load.image('logo', 'assets/logo.png');
         game.load.image('bg', 'assets/bg.jpg');
         game.load.image('play','assets/play.png');
         game.load.image('what','assets/what.png');
-=======
+
         game.load.image('winningHole','assets/winningHole.png');
         game.load.image('enemy','assets/enemy.png');
         game.load.image('bg', 'assets/bg.jpg');
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
->>>>>>> origin/master
+
         game.time.advancedTiming.enable = true;
     },
     create: function() {
@@ -160,7 +159,7 @@ EnemyTween: function()
 
 var menuState = {
     create: function() {
-<<<<<<< HEAD
+
 
       game.add.image(0, 0, 'bg');
       game.add.image(0, 0, 'logo');
@@ -172,13 +171,6 @@ var menuState = {
         startBtn.scale.setTo(0.4,0.4);
         instrBtn.scale.setTo(0.3,0.3);
 
-=======
-        var nameLabel = game.add.text(game.world.centerX, game.world.centerY-200, "The Supermaze", {font: '5Em Arial', fill: '#ffffff'});
-        startBtn = game.add.button(game.world.centerX, game.world.centerY, 'start', this.start, this);
-        instrBtn = game.add.button(game.world.centerX, game.world.centerY+200, 'instruction', this.instruction, this);
-        game.add.image(0, 0, 'bg');
-        nameLabel.anchor.x=0.5;
->>>>>>> origin/master
         startBtn.anchor.x=0.5;
         instrBtn.anchor.x=0.5;
     },

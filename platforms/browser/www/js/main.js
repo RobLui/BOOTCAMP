@@ -21,7 +21,7 @@ var PreloadState = {
         game.time.advancedTiming.enable = true;
     },
     create: function() {
-        game.state.start("game");
+        game.state.start("menu");
     }
 };
 // PLAYGAME
