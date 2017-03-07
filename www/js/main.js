@@ -1,8 +1,8 @@
 var game = new Phaser.Game(600, 800, Phaser.AUTO, "");
 var speed = 5;
-var lives = 3;
 var map;
 var layer;
+var health = 3;
 
 // PRELOAD
 var PreloadState = {
@@ -12,7 +12,7 @@ var PreloadState = {
         game.load.image('start','assets/start_button.png');
         game.load.image('instruction','assets/instruction_button.png');
         game.load.image('back','assets/back_button.png');
-        game.load.spritesheet("laser","assets/laser.png",50,50,2);
+        game.load.spritesheet("laser","assets/laser.png",50,20,2);
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.stage.backgroundColor = '#0ad100';
         game.time.advancedTiming.enable = true;
@@ -46,7 +46,8 @@ var PlayGame = {
             // Cursors
             cursors = game.input.keyboard.createCursorKeys();
             //Text
-            var nameLabel = game.add.text(game.world.centerX, game.world.centerY-200, "The Supermaze", {font: '5Em Arial', fill: '#ffffff'});
+            healthtext = game.add.text(550, 0, "3", {font: '5Em Arial', fill: '#ff0000'});
+            healthtext.text=health;
         },
     handleOrientation: function(e) {
         deltaTime = (game.time.elapsedMS) * 0.08;
@@ -81,7 +82,8 @@ var PlayGame = {
     }
   },
   decreasehealth: function(){
-        //DECREASE HEALTH WIH ONE
+        health--;
+        healthtext.text=health;
   },
   update: function()
   {
