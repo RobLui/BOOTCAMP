@@ -108,6 +108,10 @@ var PlayGame = {
   decreasehealth: function(){
         health--;
         healthtext.text=health;
+        if("vibrate" in window.navigator)
+        {
+            window.navigator.vibrate(100);
+        }
   },
   update: function()
   {
