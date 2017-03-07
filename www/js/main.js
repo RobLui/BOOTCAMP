@@ -13,19 +13,26 @@ var PreloadState = {
     preload: function() {
         game.load.image("bal", "assets/bal.png");
         game.load.image('tileset','assets/tileset.png');
-        game.load.image('start','assets/start_button.png');
-        game.load.image('instruction','assets/instruction_button.png');
         game.load.image('back','assets/back_button.png');
         game.load.image('hole','assets/hole.png');
+
+        game.load.spritesheet("laser","assets/laser.png",50,20,2);
+        game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.image('logo', 'assets/logo.png');
+        game.load.image('bg', 'assets/bg.jpg');
+        game.load.image('play','assets/play.png');
+        game.load.image('what','assets/what.png');
+
         game.load.image('winningHole','assets/winningHole.png');
         game.load.image('enemy','assets/enemy.png');
         game.load.image('bg', 'assets/bg.jpg');
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
+
         game.time.advancedTiming.enable = true;
     },
     create: function() {
-        game.state.start("game");
+        game.state.start("menu");
     }
 };
 // PLAYGAME
@@ -54,14 +61,12 @@ var PlayGame = {
             game.physics.arcade.enable(enemy);
             enemy.anchor.y=0.5;
             enemy.anchor.x=0.5;
-            tweenEnemy = game.add.tween(enemy).to({y:600 },3000 , Phaser.Easing.Linear.None,true,0,-1,true);
-
+            enemy.body.mass=10;
             // Bal
             bal     = game.add.sprite(50, 50, "bal");
             game.physics.arcade.enable(bal);
             bal.enableBody=true;
             bal.body.collideWorldBounds = true;
-
             // Winning hole
             winningHole   = game.add.sprite(525,725,"winningHole");
             winningHole.enableBody=true;
@@ -172,16 +177,56 @@ var PlayGame = {
         {
             window.navigator.vibrate(100);
         }
+<<<<<<< HEAD
   }
+=======
+  },
+  update: function()
+  {
+    this.cursorMovement();
+    // Laser hit
+    game.physics.arcade.overlap(bal,laser,this.laserhit,null,this);
+    //Bounce to walls
+    game.physics.arcade.collide(layer, bal);
+    // Hole
+    game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
+    // Enemy
+    game.physics.arcade.overlap(hole, enemy,this.enemyhit,null,this);
+    this.EnemyTween();
+    game.physics.arcade.collide(enemy, layer);
+    if(game.physics.arcade.collide(enemy, bal))
+    {
+        this.decreasehealth();
+    }
+},
+EnemyTween: function()
+{
+    if(enemy.body.position.y<=262.5)
+    {
+        enemy.body.velocity.y= +50;
+    }
+    if(enemy.body.position.y>=600)
+    {
+        enemy.body.velocity.y = -50;
+    }
+}
+>>>>>>> origin/master
 };
 
 var menuState = {
     create: function() {
-        var nameLabel = game.add.text(game.world.centerX, game.world.centerY-200, "The Supermaze", {font: '5Em Arial', fill: '#ffffff'});
-        startBtn = game.add.button(game.world.centerX, game.world.centerY, 'start', this.start, this);
-        instrBtn = game.add.button(game.world.centerX, game.world.centerY+200, 'instruction', this.instruction, this);
-        game.add.image(0, 0, 'bg');
-        nameLabel.anchor.x=0.5;
+
+
+      game.add.image(0, 0, 'bg');
+      game.add.image(0, 0, 'logo');
+
+
+        startBtn = game.add.button(game.world.centerX , game.world.centerY+50, 'play', this.start, this);
+        instrBtn = game.add.button(game.world.centerX , game.world.centerY+250, 'what', this.instruction, this);
+
+        startBtn.scale.setTo(0.4,0.4);
+        instrBtn.scale.setTo(0.3,0.3);
+
         startBtn.anchor.x=0.5;
         instrBtn.anchor.x=0.5;
     },
