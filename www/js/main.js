@@ -13,11 +13,8 @@ var PreloadState = {
         game.load.image('instruction','assets/instruction_button.png');
         game.load.image('back','assets/back_button.png');
         game.load.image('hole','assets/hole.png');
-<<<<<<< HEAD
         game.load.image('winningHole','assets/winningHole.png');
-=======
-        game.load.image('enemy','assets/bal.png');
->>>>>>> origin/master
+        game.load.image('enemy','assets/enemy.png');
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.stage.backgroundColor = '#0ad100';
@@ -53,7 +50,7 @@ var PlayGame = {
             hole.anchor.y=0.5;
             hole.anchor.x=0.5;
             // Winning hole
-            winningHole   = game.add.sprite(220,500,"winningHole");
+            winningHole   = game.add.sprite(525,725,"winningHole");
             winningHole.enableBody=true;
             game.physics.arcade.enable(winningHole);
             winningHole.anchor.y=0.5;
@@ -71,6 +68,7 @@ var PlayGame = {
             healthtext.text=health;
             //Enemy
             Enemy=game.add.sprite(62.5,275,"enemy");
+            tweenEnemy = game.add.tween(Enemy).to({y:600 },3000 , Phaser.Easing.Linear.None,true,0,-1,true);
         },
     handleOrientation: function(e) {
         deltaTime = (game.time.elapsedMS);
@@ -102,7 +100,7 @@ var PlayGame = {
     game.state.start('game');
   },
   laserhit: function(bal,laser){
-    if(laser.animations.frame==1)
+    if(laser.animations.frame==0)
     {
       this.decreasehealth();
     }
@@ -121,7 +119,6 @@ var PlayGame = {
     // Hole
     game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
     //Enemy
-    tweenEnemy = game.add.tween(Enemy).to({y:600 },1000 , Phaser.Easing.Linear.None,true, 1,1, true);
   }
 };
 
