@@ -39,7 +39,7 @@ var PlayGame = {
             bal.enableBody=true;
             bal.body.collideWorldBounds = true;
             // Hole
-            hole   = game.add.sprite(250,100,"hole");
+            hole   = game.add.sprite(220,375,"hole");
             hole.enableBody=true;
             game.physics.arcade.enable(hole);
             hole.anchor.y=0.5;
