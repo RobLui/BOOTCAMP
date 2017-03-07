@@ -13,6 +13,7 @@ var PreloadState = {
         game.load.image('instruction','assets/instruction_button.png');
         game.load.image('back','assets/back_button.png');
         game.load.image('hole','assets/hole.png');
+        game.load.image('enemy','assets/bal.png');
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.stage.backgroundColor = '#0ad100';
@@ -64,6 +65,8 @@ var PlayGame = {
             //Text
             healthtext = game.add.text(550, 0, "3", {font: '5Em Arial', fill: '#ff0000'});
             healthtext.text=health;
+            //Enemy
+            Enemy=game.add.sprite(62.5,275,"enemy");
         },
     handleOrientation: function(e) {
         deltaTime = (game.time.elapsedMS);
@@ -113,6 +116,8 @@ var PlayGame = {
     game.physics.arcade.collide(layer, bal);
     // Hole
     game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
+    //Enemy
+    tweenEnemy = game.add.tween(Enemy).to({y:600 },1000 , Phaser.Easing.Linear.None,true, 1,1, true);
   }
 };
 
