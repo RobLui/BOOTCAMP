@@ -1,9 +1,9 @@
 var game = new Phaser.Game(600, 800, Phaser.AUTO, "");
-var speed = 5;
+var speed = 3;
 var map;
 var layer;
 var health = 3;
-
+var hole;
 // PRELOAD
 var PreloadState = {
     preload: function() {
@@ -37,6 +37,10 @@ var PlayGame = {
             game.physics.arcade.enable(bal);
             bal.enableBody=true;
             bal.body.collideWorldBounds = true;
+            // Hole
+            hole   = game.add.sprite(250,100,"hole");
+            hole.enableBody=true;
+            game.physics.arcade.enable(hole);
             // Map
             map = game.add.tilemap('map');
             map.addTilesetImage('tileset', 'tileset');
@@ -50,7 +54,7 @@ var PlayGame = {
             healthtext.text=health;
         },
     handleOrientation: function(e) {
-        deltaTime = (game.time.elapsedMS) * 0.08;
+        deltaTime = (game.time.elapsedMS);
         var x = e.gamma;
         var y = e.beta;
         bal.body.velocity.x = x * speed * deltaTime;
@@ -75,6 +79,9 @@ var PlayGame = {
       bal.body.velocity.x = +100;
     }
   },
+  holehit: function(bal,hole){
+    game.state.start('game');
+  },
   laserhit: function(bal,laser){
     if(laser.animations.frame==1)
     {
@@ -90,6 +97,8 @@ var PlayGame = {
     this.cursorMovement();
     game.physics.arcade.overlap(bal,laser,this.laserhit,null,this);
     game.physics.arcade.collide(layer, bal);
+    // Hole
+    game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
   }
 };
 

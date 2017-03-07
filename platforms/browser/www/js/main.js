@@ -1,9 +1,9 @@
 var game = new Phaser.Game(600, 800, Phaser.AUTO, "");
-var speed = 5;
-var lives = 3;
+var speed = 3;
 var map;
 var layer;
-
+var health = 3;
+var hole;
 // PRELOAD
 var PreloadState = {
     preload: function() {
@@ -12,7 +12,7 @@ var PreloadState = {
         game.load.image('start','assets/start_button.png');
         game.load.image('instruction','assets/instruction_button.png');
         game.load.image('back','assets/back_button.png');
-        game.load.spritesheet("laser","assets/laser.png",50,50,2);
+        game.load.spritesheet("laser","assets/laser.png",50,20,2);
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.stage.backgroundColor = '#0ad100';
         game.time.advancedTiming.enable = true;
@@ -37,6 +37,10 @@ var PlayGame = {
             game.physics.arcade.enable(bal);
             bal.enableBody=true;
             bal.body.collideWorldBounds = true;
+            // Hole
+            hole   = game.add.sprite(250,100,"hole");
+            hole.enableBody=true;
+            game.physics.arcade.enable(hole);
             // Map
             map = game.add.tilemap('map');
             map.addTilesetImage('tileset', 'tileset');
@@ -46,10 +50,11 @@ var PlayGame = {
             // Cursors
             cursors = game.input.keyboard.createCursorKeys();
             //Text
-            var nameLabel = game.add.text(game.world.centerX, game.world.centerY-200, "The Supermaze", {font: '5Em Arial', fill: '#ffffff'});
+            healthtext = game.add.text(550, 0, "3", {font: '5Em Arial', fill: '#ff0000'});
+            healthtext.text=health;
         },
     handleOrientation: function(e) {
-        deltaTime = (game.time.elapsedMS) * 0.08;
+        deltaTime = (game.time.elapsedMS);
         var x = e.gamma;
         var y = e.beta;
         bal.body.velocity.x = x * speed * deltaTime;
@@ -74,6 +79,9 @@ var PlayGame = {
       bal.body.velocity.x = +100;
     }
   },
+  holehit: function(bal,hole){
+    game.state.start('game');
+  },
   laserhit: function(bal,laser){
     if(laser.animations.frame==1)
     {
@@ -81,13 +89,16 @@ var PlayGame = {
     }
   },
   decreasehealth: function(){
-        //DECREASE HEALTH WIH ONE
+        health--;
+        healthtext.text=health;
   },
   update: function()
   {
     this.cursorMovement();
     game.physics.arcade.overlap(bal,laser,this.laserhit,null,this);
     game.physics.arcade.collide(layer, bal);
+    // Hole
+    game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
   }
 };
 
