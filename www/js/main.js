@@ -16,6 +16,8 @@ var PreloadState = {
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.stage.backgroundColor = '#0ad100';
+
+        game.load.image('bg', 'assets/bg.jpg');
         game.time.advancedTiming.enable = true;
     },
     create: function() {
@@ -25,6 +27,7 @@ var PreloadState = {
 // PLAYGAME
 var PlayGame = {
     create: function() {
+      game.add.image(0, 0, 'bg');
             window.addEventListener("deviceorientation", this.handleOrientation, true);
             game.physics.startSystem(Phaser.Physics.ARCADE);
             // Laser
@@ -109,10 +112,11 @@ var PlayGame = {
 
 var menuState = {
     create: function() {
+
         var nameLabel = game.add.text(game.world.centerX, game.world.centerY-200, "The Supermaze", {font: '5Em Arial', fill: '#ffffff'});
         startBtn = game.add.button(game.world.centerX, game.world.centerY, 'start', this.start, this);
         instrBtn = game.add.button(game.world.centerX, game.world.centerY+200, 'instruction', this.instruction, this);
-
+        game.add.image(0, 0, 'bg');
         nameLabel.anchor.x=0.5;
         startBtn.anchor.x=0.5;
         instrBtn.anchor.x=0.5;
