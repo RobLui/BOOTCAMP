@@ -1,14 +1,15 @@
 var game = new Phaser.Game(600, 800, Phaser.AUTO, "");
 var speed = 3;
+var health = 3;
+
 var map;
 var layer;
-var health = 3;
 var hole;
-var timer;
+
 var style;
-var elapsed_sec = 1000;
 var timeText;
 var time;
+var timer;
 var timeString;
 
 // PRELOAD
@@ -36,7 +37,7 @@ var PreloadState = {
 // PLAYGAME
 var PlayGame = {
     create: function() {
-        window.addEventListener("deviceorientation", this.handleOrientation, true);
+        window.addEventListener("deviceorientation", HandleOrientation, true);
         game.add.image(1, 1, 'bg');
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -86,7 +87,7 @@ var PlayGame = {
         style = { fill : "#FFFFFF" };
         timeText = game.add.text(200, 200, timeString, style);
         timer = game.time.create();
-        timer.repeat(1 * Phaser.Timer.SECOND, 7200, this.updateTime, this);
+        timer.repeat(1 * Phaser.Timer.SECOND, 7200, UpdateTime, this);
         timer.start();
 
         // CURSORS
@@ -100,114 +101,116 @@ var PlayGame = {
     // UPDATE
     update: function()
     {
-      this.cursorMovement();
-      // Laser hit
-      game.physics.arcade.overlap(bal,laser,this.laserhit,null,this);
-      //Bounce to walls
+      CursorMovement();
+      // BOUNCE WALLS
       game.physics.arcade.collide(layer, bal);
-      // Hole
-      game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
-      // Enemy
-      game.physics.arcade.overlap(bal, enemy,this.enemyhit,null,this);
+      // HOLE
+      game.physics.arcade.overlap(hole, bal, Holehit, null, this);
+      // LASER
+      game.physics.arcade.overlap(bal, laser, Laserhit, null, this);
+      // WIN GAME
+      game.physics.arcade.overlap(bal, winningHole, Wingame, null, this);
+      // ENEMY
+      game.physics.arcade.overlap(bal, enemy, Enemyhit, null, this);
+      EnemyTween();
       // game.physics.arcade.collide(enemy, bal);
-    },
-
-      // UPDATE TIME
-      updateTime: function()
-      {
-        time = new Date();
-        // var hours = time.getHours();
-        // var minutes = time.getMinutes();
-        var sec = time.getSeconds();
-        var ms = time.getMilliseconds();
-        timeString =   sec - ms;
-        timeText.text = timeString;
-      },
-
-      // DEVICE ORIENTATION
-      handleOrientation: function(e)
-      {
-        deltaTime = (game.time.elapsedMS);
-        var x = e.gamma;
-        var y = e.beta;
-        bal.body.velocity.x = x * speed * deltaTime;
-        bal.body.velocity.y = y * speed * deltaTime;
-      },
-      // CURSOS MOVEMENT
-      cursorMovement: function()
-      {
-        if (cursors.up.isDown)
-        {
-          bal.body.velocity.y = -300;
-        }
-        else if (cursors.down.isDown)
-        {
-          bal.body.velocity.y = +300;
-        }
-        else if (cursors.left.isDown)
-        {
-          bal.body.velocity.x = -300;
-        }
-        else if (cursors.right.isDown)
-        {
-          bal.body.velocity.x = +300;
-        }
-      },
-      holehit: function(bal,hole){
-        healthtext.text = health;
-        game.state.start('game');
-      },
-      enemyhit: function(bal,enemy){
-        this.decreasehealth();
-      },
-      laserhit: function(bal,laser){
-        if(laser.animations.frame==0)
-        {
-          this.decreasehealth();
-        }
-      },
-      wingame: function(){
-        game.state.start('game');
-      },
-      decreasehealth: function(){
-        health--;
-        healthtext.text=health;
-        if("vibrate" in window.navigator)
-        {
-            window.navigator.vibrate(100);
-        }
-      },
-      update: function()
-      {
-        this.cursorMovement();
-        // Laser hit
-        game.physics.arcade.overlap(bal,laser,this.laserhit,null,this);
-        //Bounce to walls
-        game.physics.arcade.collide(layer, bal);
-        // Hole
-        game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
-        // Enemy
-        game.physics.arcade.overlap(hole, enemy,this.enemyhit,null,this);
-        this.EnemyTween();
-        game.physics.arcade.collide(enemy, layer);
-        if(game.physics.arcade.collide(enemy, bal))
-        {
-            this.decreasehealth();
-        }
-    },
-EnemyTween: function()
-{
-    if(enemy.body.position.y <= 262.5)
-    {
-        enemy.body.velocity.y += 50;
     }
-    if(enemy.body.position.y >= 600)
-    {
-        enemy.body.velocity.y -= 50;
-    }
-}
 };
 
+// ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
+// DEVICE ORIENTATION
+function HandleOrientation(e)
+{
+  deltaTime = (game.time.elapsedMS);
+  var x = e.gamma;
+  var y = e.beta;
+  bal.body.velocity.x = x * speed * deltaTime;
+  bal.body.velocity.y = y * speed * deltaTime;
+}
+
+// UPDATE TIME
+function UpdateTime()
+{
+  time = new Date();
+  // var hours = time.getHours();
+  // var minutes = time.getMinutes();
+  var sec = time.getSeconds();
+  var ms = time.getMilliseconds();
+  timeString =   sec - ms;
+  timeText.text = timeString;
+}
+
+function Decreasehealth(){
+  health--;
+  healthtext.text=health;
+  if("vibrate" in window.navigator)
+  {
+      window.navigator.vibrate(100);
+  }
+}
+
+// ENEMYHIT
+function Enemyhit(bal,enemy)
+{
+  Decreasehealth();
+}
+
+// LASERHIT
+function Laserhit(bal,laser)
+{
+  if(laser.animations.frame==0)
+    Decreasehealth();
+}
+
+// WINGAME
+function Wingame()
+{
+  game.state.start('game');
+}
+
+// HOLEHIT
+function Holehit(bal,hole)
+{
+  healthtext.text = health;
+  game.state.start('game');
+}
+
+// ENEMYTWEEN & HEALTH
+function EnemyTween()
+{
+  game.physics.arcade.collide(enemy, layer);
+  if(game.physics.arcade.collide(enemy, bal))
+      this.Decreasehealth();
+
+  if(enemy.body.position.y <= 262.5)
+    enemy.body.velocity.y += 50;
+
+  if(enemy.body.position.y >= 600)
+    enemy.body.velocity.y -= 50;
+}
+
+// CURSOR MOVEMENT
+function CursorMovement()
+{
+  if (cursors.up.isDown)
+  {
+    bal.body.velocity.y = -300;
+  }
+  else if (cursors.down.isDown)
+  {
+    bal.body.velocity.y = +300;
+  }
+  else if (cursors.left.isDown)
+  {
+    bal.body.velocity.x = -300;
+  }
+  else if (cursors.right.isDown)
+  {
+    bal.body.velocity.x = +300;
+  }
+}
+
+// ------------------------------------------------------ STATES ------------------------------------------------------
 var menuState = {
     create: function() {
       //
@@ -229,6 +232,7 @@ var menuState = {
         game.state.start('instruction');
     }
 };
+
 var instructionState = {
     create: function() {
         var nameLabel = game.add.text(game.world.centerX, game.world.centerY-200, "The Supermaze", {font: '5Em Arial', fill: '#ffffff'});
@@ -249,7 +253,8 @@ var instructionState = {
         game.state.start('menu');
     }
 };
-// ADD STATES ONTO GAME & START PRELOAD
+
+// ------------------------------------------------------ ADDING STATES ------------------------------------------------------
 game.state.add('preload', this.PreloadState);
 game.state.add('menu', this.menuState);
 game.state.add('instruction', this.instructionState);
