@@ -14,6 +14,10 @@ var time;
 var timer;
 var timeString;
 
+var currentTime;
+var nextTime;
+
+
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
 // DEVICE ORIENTATION
@@ -59,7 +63,14 @@ function Enemyhit(bal,enemy)
 function Laserhit(bal,laser)
 {
   if(laser.animations.frame==0)
-    Decreasehealth();
+  {
+    if (!currentTime == nextTime ) {
+      Decreasehealth();
+      console.log(currentTime + " " + nextTime);
+      currentTime == nextTime;
+    }
+    UpdateTime();
+  }
 }
 
 // WINGAME

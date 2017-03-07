@@ -78,6 +78,5 @@ var LEVEL_1 = {
       game.physics.arcade.overlap(bal, enemy, Enemyhit, null, this);
       EnemyTween();
       // game.physics.arcade.collide(enemy, bal);
-      UpdateTime();
     }
 };
