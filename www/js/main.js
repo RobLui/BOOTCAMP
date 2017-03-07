@@ -13,6 +13,7 @@ var PreloadState = {
         game.load.image('instruction','assets/instruction_button.png');
         game.load.image('back','assets/back_button.png');
         game.load.image('hole','assets/hole.png');
+        game.load.image('winningHole','assets/winningHole.png');
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
         game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.stage.backgroundColor = '#0ad100';
@@ -26,7 +27,7 @@ var PreloadState = {
 };
 // PLAYGAME
 var PlayGame = {
-    create: function() {
+  create: function() {
       game.add.image(0, 0, 'bg');
             window.addEventListener("deviceorientation", this.handleOrientation, true);
             game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -42,13 +43,13 @@ var PlayGame = {
             bal.enableBody=true;
             bal.body.collideWorldBounds = true;
             // Hole
-            hole   = game.add.sprite(220,500,"Hole");
+            hole   = game.add.sprite(220,375,"hole");
             hole.enableBody=true;
             game.physics.arcade.enable(hole);
             hole.anchor.y=0.5;
             hole.anchor.x=0.5;
             // Winning hole
-            winningHole   = game.add.sprite(220,375,"Hole");
+            winningHole   = game.add.sprite(220,500,"winningHole");
             winningHole.enableBody=true;
             game.physics.arcade.enable(winningHole);
             winningHole.anchor.y=0.5;
