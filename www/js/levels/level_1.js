@@ -46,21 +46,11 @@ var LEVEL_1 = {
         layer.resizeWorld();
         map.setCollisionBetween(1, 12);
 
-        // TIMER
-        style = { fill : "#FFFFFF" };
-        timeText = game.add.text(200, 200, timeString, style);
-        timer = game.time.create();
-        timer.repeat(1 * Phaser.Timer.SECOND, 7200, UpdateTime, this);
-        timer.start();
-
-        // FPS TEXT
-        fpsText = game.add.text(200, 250, fpsString, style);
-
         // CURSORS
         cursors = game.input.keyboard.createCursorKeys();
 
         // HEALTH
-        healthtext = game.add.text(550, 0, "3", {font: '5em Arial', fill: '#ff0000'});
+        healthtext = game.add.text(250, 0, "2", {font: '5em Arial', fill: '#ff0000'});
         healthtext.text = health;
     },
 
@@ -80,6 +70,8 @@ var LEVEL_1 = {
       // ENEMY
       game.physics.arcade.overlap(bal, enemy, Enemyhit, null, this);
       EnemyTween();
+      // TIMER
+      TimeChecker();
       // game.physics.arcade.collide(enemy, bal);
     }
 };

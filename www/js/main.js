@@ -19,15 +19,19 @@ var fpsText;
 
 var currentTime;
 var nextTime;
-
 var deltaTime;
+
+var elapsedTime;
+var waitingTime = 1; // In seconde
+var death = 0;
+var lastEventTrackedTime = 0;
 
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
 // DEVICE ORIENTATION
 function HandleOrientation(e)
 {
-  deltaTime = Math.abs(game.time.elapsedMS);
+  deltaTime = (game.time.elapsedMS);
   var x = e.gamma;
   var y = e.beta;
   bal.body.velocity.x = x * speed * deltaTime;
@@ -35,26 +39,23 @@ function HandleOrientation(e)
 }
 
 // UPDATE TIME
-function UpdateTime()
+function TimeChecker()
 {
-  time = new Date();
-  // var hours = time.getHours();
-  // var minutes = time.getMinutes();
-  var sec = time.getSeconds();
-  var ms = time.getMilliseconds();
-
-  timeString =   sec - ms;
-  timeText.text = timeString;
-
-  fpsString = game.time.fps;
-  fpsText.text = fpsString;
-  console.log(deltaTime);
+  var currentTime = game.time.time;
+  elapsedTime = game.time.elapsedSecondsSince(lastEventTrackedTime);
+  // console.log(elapsedTime);
 }
 
 // DECREASE HEALTH
 function Decreasehealth(){
-  health--;
-  healthtext.text=health;
+  if (elapsedTime > waitingTime ) {
+    health--;
+    if (health == death) {
+      health = 3;
+      game.state.start('game');
+    }
+  }
+  healthtext.text = health;
   if( "vibrate" in window.navigator)
   {
       window.navigator.vibrate(100);
@@ -73,7 +74,8 @@ function Laserhit(bal,laser)
   if(laser.animations.frame==0)
   {
       Decreasehealth();
-      UpdateTime();
+      //Elapsed time (seconds) since the last event tracked
+      lastEventTrackedTime = game.time.time;
   }
 }
 
