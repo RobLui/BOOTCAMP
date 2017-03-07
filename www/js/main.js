@@ -4,6 +4,10 @@ var map;
 var layer;
 var health = 3;
 var hole;
+var timer;
+
+var timeString;
+var timeText;
 // PRELOAD
 var PreloadState = {
     preload: function() {
@@ -36,12 +40,14 @@ var PlayGame = {
             laser.animations.play("blink");
             laser.enableBody=true;
             game.physics.arcade.enable(laser);
+
             // Hole
             hole   = game.add.sprite(220,375,"hole");
             hole.enableBody=true;
             game.physics.arcade.enable(hole);
             hole.anchor.y=0.5;
             hole.anchor.x=0.5;
+
             // Enemy
             enemy = game.add.sprite(62.5,275,"enemy");
             enemy.enableBody=true;
@@ -62,18 +68,65 @@ var PlayGame = {
             game.physics.arcade.enable(winningHole);
             winningHole.anchor.y=0.5;
             winningHole.anchor.x=0.5;
+
             // Map
             map = game.add.tilemap('map');
             map.addTilesetImage('tileset', 'tileset');
             layer = map.createLayer('Tilelaag 1');
             layer.resizeWorld();
             map.setCollisionBetween(1, 12);
+
+            // Timer
+            var style = { fill : "#FFFFFF" };
+            timeText = game.add.text(200, 200, timeString, style);
+
+            var timer = game.time.create();
+            timer.repeat(1 * Phaser.Timer.SECOND, 7200, this.updateTime, this);
+            timer.start();
             // Cursors
             cursors = game.input.keyboard.createCursorKeys();
             //Text
             healthtext = game.add.text(550, 0, "3", {font: '5Em Arial', fill: '#ff0000'});
             healthtext.text=health;
         },
+        updateTime: function() {
+          var time = new Date();
+
+          var hours = time.getHours();
+          var minutes = time.getMinutes();
+          var seconds = time.getSeconds();
+
+          if (hours < 10) {
+              hours = "0" + hours;
+          }
+          if (minutes < 10) {
+              minutes = "0" + minutes;
+          }
+          if (seconds < 10) {
+              seconds = "0" + seconds;
+          }
+
+          timeString = hours + ":" + minutes + ":" + seconds;
+          timeText.text = timeString;
+      },
+        update: function()
+        {
+          this.cursorMovement();
+          // Laser hit
+          game.physics.arcade.overlap(bal,laser,this.laserhit,null,this);
+          //Bounce to walls
+          game.physics.arcade.collide(layer, bal);
+          // Hole
+          game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
+          // Enemy
+          game.physics.arcade.overlap(bal, enemy,this.enemyhit,null,this);
+          // game.physics.arcade.collide(enemy, bal);
+        },
+         getCurrentTime: function(){
+            var currentdate = new Date();
+            time = currentdate.getHours() + ":"  + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+            return time;
+          },
     handleOrientation: function(e) {
         deltaTime = (game.time.elapsedMS);
         var x = e.gamma;
@@ -105,7 +158,6 @@ var PlayGame = {
   },
   enemyhit: function(bal,enemy){
     this.decreasehealth();
-    console.log("werkt???");
   },
   laserhit: function(bal,laser){
     if(laser.animations.frame==0)
@@ -120,18 +172,6 @@ var PlayGame = {
         {
             window.navigator.vibrate(100);
         }
-  },
-  update: function()
-  {
-    this.cursorMovement();
-    // Laser hit
-    game.physics.arcade.overlap(bal,laser,this.laserhit,null,this);
-    //Bounce to walls
-    game.physics.arcade.collide(layer, bal);
-    // Hole
-    game.physics.arcade.overlap(hole, bal,this.holehit,null,this);
-    // Enemy
-    game.physics.arcade.overlap(hole, enemy,this.enemyhit,null,this);
   }
 };
 
