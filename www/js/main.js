@@ -42,11 +42,17 @@ var PlayGame = {
             bal.enableBody=true;
             bal.body.collideWorldBounds = true;
             // Hole
-            hole   = game.add.sprite(220,375,"hole");
+            hole   = game.add.sprite(220,500,"Hole");
             hole.enableBody=true;
             game.physics.arcade.enable(hole);
             hole.anchor.y=0.5;
             hole.anchor.x=0.5;
+            // Winning hole
+            winningHole   = game.add.sprite(220,375,"Hole");
+            winningHole.enableBody=true;
+            game.physics.arcade.enable(winningHole);
+            winningHole.anchor.y=0.5;
+            winningHole.anchor.x=0.5;
             // Map
             map = game.add.tilemap('map');
             map.addTilesetImage('tileset', 'tileset');
