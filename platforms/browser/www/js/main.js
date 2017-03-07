@@ -1,4 +1,6 @@
 var game = new Phaser.Game(600, 800, Phaser.AUTO, "");
+
+// ------------------------------------------------------ GLOBALS ------------------------------------------------------
 var speed = 3;
 var health = 3;
 
@@ -11,6 +13,8 @@ var timeText;
 var time;
 var timer;
 var timeString;
+
+// ------------------------------------------------------ STATES PRELOAD & PLAYGAME ------------------------------------------------------
 
 // PRELOAD
 var PreloadState = {
@@ -34,6 +38,7 @@ var PreloadState = {
         game.state.start("menu");
     }
 };
+
 // PLAYGAME
 var PlayGame = {
     create: function() {
@@ -118,6 +123,7 @@ var PlayGame = {
 };
 
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
+
 // DEVICE ORIENTATION
 function HandleOrientation(e)
 {
@@ -140,6 +146,7 @@ function UpdateTime()
   timeText.text = timeString;
 }
 
+// DECREASE HEALTH
 function Decreasehealth(){
   health--;
   healthtext.text=health;
@@ -210,7 +217,7 @@ function CursorMovement()
   }
 }
 
-// ------------------------------------------------------ STATES ------------------------------------------------------
+// ------------------------------------------------------ STATES MENUSTART & INSTRUCTIONSTATE------------------------------------------------------
 var menuState = {
     create: function() {
       //
