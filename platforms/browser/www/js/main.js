@@ -18,7 +18,7 @@ var PreloadState = {
         game.time.advancedTiming.enable = true;
     },
     create: function() {
-        game.state.start("menu");
+        game.state.start("game");
     }
 };
 // PLAYGAME
@@ -27,7 +27,7 @@ var PlayGame = {
             window.addEventListener("deviceorientation", this.handleOrientation, true);
             game.physics.startSystem(Phaser.Physics.ARCADE);
             // Laser
-            laser   = game.add.sprite(250,100,"laser");
+            laser   = game.add.sprite(250,112.5,"laser");
             laser.animations.add("blink",[0,1],1,true);
             laser.animations.play("blink");
             laser.enableBody=true;
@@ -38,7 +38,7 @@ var PlayGame = {
             bal.enableBody=true;
             bal.body.collideWorldBounds = true;
             // Hole
-            hole   = game.add.sprite(250,100,"hole");
+            hole   = game.add.sprite(250,100,"bal");
             hole.enableBody=true;
             game.physics.arcade.enable(hole);
             // Map
@@ -140,7 +140,6 @@ var instructionState = {
         game.state.start('menu');
     }
 };
-
 // ADD STATES ONTO GAME & START PRELOAD
 game.state.add('preload', this.PreloadState);
 game.state.add('menu', this.menuState);
