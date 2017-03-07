@@ -1,4 +1,4 @@
-var PlayGame = {
+var LEVEL_1 = {
     create: function() {
         window.addEventListener("deviceorientation", HandleOrientation, true);
         game.add.image(1, 1, 'bg');

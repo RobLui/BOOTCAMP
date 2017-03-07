@@ -111,8 +111,8 @@ function CursorMovement()
 }
 
 // ------------------------------------------------------ ADDING STATES ------------------------------------------------------
-game.state.add('preload', this.PreloadState);
-game.state.add('game', this.PlayGame);
+game.state.add('preload', this.PreloadState );
+game.state.add('game', this.LEVEL_1);
 game.state.add('menu', this.menuState);
 game.state.add('instructions', this.instructionState);
 
