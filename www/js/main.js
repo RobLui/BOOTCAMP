@@ -99,13 +99,14 @@ var PlayGame = {
         cursors = game.input.keyboard.createCursorKeys();
 
         // HEALTH
-        healthtext = game.add.text(550, 0, "3", {font: '5Em Arial', fill: '#ff0000'});
+        healthtext = game.add.text(550, 0, "3", {font: '5em Arial', fill: '#ff0000'});
         healthtext.text = health;
     },
 
     // UPDATE
     update: function()
     {
+      // CURSOR MOVEMENT
       CursorMovement();
       // BOUNCE WALLS
       game.physics.arcade.collide(layer, bal);
@@ -119,6 +120,8 @@ var PlayGame = {
       game.physics.arcade.overlap(bal, enemy, Enemyhit, null, this);
       EnemyTween();
       // game.physics.arcade.collide(enemy, bal);
+      UpdateTime();
+      console.log(UpdateTime());
     }
 };
 
@@ -144,6 +147,7 @@ function UpdateTime()
   var ms = time.getMilliseconds();
   timeString =   sec - ms;
   timeText.text = timeString;
+  return timeString;
 }
 
 // DECREASE HEALTH
@@ -218,6 +222,8 @@ function CursorMovement()
 }
 
 // ------------------------------------------------------ STATES MENUSTART & INSTRUCTIONSTATE------------------------------------------------------
+
+// MENUSTATE
 var menuState = {
     create: function() {
       //
@@ -240,6 +246,7 @@ var menuState = {
     }
 };
 
+// INSTRUCTIONSTATE
 var instructionState = {
     create: function() {
         var nameLabel = game.add.text(game.world.centerX, game.world.centerY-200, "The Supermaze", {font: '5Em Arial', fill: '#ffffff'});
