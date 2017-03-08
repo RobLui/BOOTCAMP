@@ -4,7 +4,6 @@ var LEVEL_1 = {
         game.add.image(1, 1, 'bg');
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-
         // HOLE / LOSING HOLE
         holes=game.add.group();
         holes.enableBody=true;
@@ -13,7 +12,6 @@ var LEVEL_1 = {
         holes.create(50,505,"hole");
         holes.create(505,355,"hole");
         holes.create(505,605,"hole");
-        //game.physics.arcade.enable(holes);
 
         // BAL A.K.A. PLAYER
         bal = game.add.sprite(50, 50, "bal");
@@ -27,6 +25,8 @@ var LEVEL_1 = {
         game.physics.arcade.enable(winningHole);
         winningHole.anchor.y=0.5;
         winningHole.anchor.x=0.5;
+
+        // STATES
         currentstate="level1";
         nextState="intro_lvl2";
 
@@ -57,6 +57,7 @@ var LEVEL_1 = {
       game.physics.arcade.overlap(bal, holes, Holehit, null, this);
       // WIN GAME
       game.physics.arcade.overlap(bal, winningHole, Wingame, null, this);
+      // HEALTH
       life.frame = health;
     }
 };

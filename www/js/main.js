@@ -7,6 +7,7 @@ var health = 3;
 var map;
 var layer;
 var hole;
+var extraLife;
 
 var style;
 var timeText;
@@ -43,11 +44,12 @@ function TimeChecker()
 {
   var currentTime = game.time.time;
   elapsedTime = game.time.elapsedSecondsSince(lastEventTrackedTime);
-  // console.log(elapsedTime);
+  console.log(elapsedTime);
 }
 
 // DECREASE HEALTH
-function Decreasehealth(){
+function Decreasehealth()
+{
   if (elapsedTime > waitingTime ) {
     health--;
     if (health == death) {
@@ -82,8 +84,8 @@ function Laserhit(bal,laser)
 // WINGAME
 function Wingame(bal,winningHole)
 {
-  music = game.add.audio('win');
-  music.play();
+    music = game.add.audio('win');
+    music.play();
     health = 3;
     game.state.start(nextState);
 }
@@ -98,6 +100,17 @@ function Holehit(bal,hole)
   //
 }
 
+// HOLEHIT
+function AddLife(bal,extraLife)
+{
+  if (elapsedTime > waitingTime && health < 3)
+  {
+    health += 1;
+    lastEventTrackedTime = game.time.time;
+  }
+  extraLife.kill();
+}
+
 // ENEMYTWEEN & HEALTH
 function EnemyTween()
 {
@@ -106,10 +119,10 @@ function EnemyTween()
       this.Decreasehealth();
 
   if(enemy.body.position.y <= 262.5)
-    enemy.body.velocity.y += 50;
+      enemy.body.velocity.y += 50;
 
   if(enemy.body.position.y >= 600)
-    enemy.body.velocity.y -= 50;
+      enemy.body.velocity.y -= 50;
 }
 
 // CURSOR MOVEMENT

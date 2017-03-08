@@ -11,8 +11,6 @@ var LEVEL_3 = {
         lasers.create(350,115,"laser");
         lasers.create(100,415,"laser");
         lasers.create(500,450,"laser");
-        // lasers.animations.add("blink",[0,1],1,true);
-        //lasers.animations.play("blink");
         lasers.callAll('animations.add', 'animations', "blink",[0,1],1,true);
         lasers.callAll('animations.play', 'animations', 'blink');
         game.physics.arcade.enable(lasers);
@@ -26,10 +24,6 @@ var LEVEL_3 = {
         holes.create(505,205,"hole");
         holes.create(205,355,"hole");
 
-
-
-
-
         // BAL A.K.A. PLAYER
         bal = game.add.sprite(50, 50, "bal");
         game.physics.arcade.enable(bal);
@@ -37,11 +31,18 @@ var LEVEL_3 = {
         bal.body.collideWorldBounds = true;
 
         // HOLE / WINNING HOLE
-        winningHole   = game.add.sprite(525,725,"winningHole");
+        winningHole = game.add.sprite(525,725,"winningHole");
         winningHole.enableBody=true;
         game.physics.arcade.enable(winningHole);
         winningHole.anchor.y=0.5;
         winningHole.anchor.x=0.5;
+
+        // EXTRA LIFE
+        extraLife = game.add.group();
+        extraLife.enableBody=true;
+        extraLife.create(55,400,"extraLife");
+
+        // STATES
         currentstate="level3";
         nextState="finished";
 
@@ -64,6 +65,8 @@ var LEVEL_3 = {
     {
       // CURSOR MOVEMENT
       CursorMovement();
+      // TIMER
+      TimeChecker();
       // BOUNCE WALLS
       game.physics.arcade.collide(layer, bal);
       // HOLE
@@ -72,9 +75,8 @@ var LEVEL_3 = {
       game.physics.arcade.overlap(bal, lasers, Laserhit, null, this);
       // WIN GAME
       game.physics.arcade.overlap(bal, winningHole, Wingame, null, this);
-      // TIMER
-      TimeChecker();
-      // game.physics.arcade.collide(enemy, bal);
+      // HEALTH
+      game.physics.arcade.overlap(bal, extraLife, AddLife, null, this);
       life.frame = health;
     }
 };

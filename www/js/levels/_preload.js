@@ -1,13 +1,13 @@
 var PreloadState = {
     preload: function() {
         game.time.advancedTiming.enable = true;
+
         //MENU
         game.load.image('logo', 'assets/logo.png');
         game.load.image('instructions', 'assets/instructions.png');
         game.load.image('play','assets/play.png');
         game.load.image('back','assets/back.png');
         game.load.image('what','assets/what.png');
-
 
         //OBJECTS
         game.load.image('bg', 'assets/bg.jpg');
@@ -20,12 +20,14 @@ var PreloadState = {
         game.load.spritesheet("harts","assets/life.png",180,50,4);
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
 
+        // EXTRA LIFE - Image has to be changed :) 
+        game.load.image('extraLife','assets/hole.png');
+
         //MUSIC
         game.load.audio('win', ['assets/win.wav']);
 
         //INTROS
         game.load.image("intro_lvl2", "assets/intro_lvl2.png");
-
 
         //CREDITS
         game.load.image('credits', 'assets/credits.png');
@@ -37,7 +39,6 @@ var PreloadState = {
 
         //LEVEL 2
         game.load.tilemap('level2', 'assets/level2.json', null, Phaser.Tilemap.TILED_JSON);
-        // game.load.image('intro_level2', 'assets/intro_lvl3.png');
 
         //LEVEL 3
         game.load.tilemap('level3', 'assets/level3.json', null, Phaser.Tilemap.TILED_JSON);
