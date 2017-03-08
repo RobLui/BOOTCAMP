@@ -1,0 +1,12 @@
+    create: function() {
+        game.add.image(0, 0, 'credits');
+
+        backBtn = game.add.button(game.world.width/5, game.world.centerY+300, 'back', this.menu, this);
+        backBtn.anchor.x=0.5;
+        backBtn.anchor.y=0.5;
+        backBtn.scale.setTo(0.3,0.3);
+    },
+    menu: function() {
+        game.state.start('menu');
+    }
+};
