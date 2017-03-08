@@ -16,6 +16,7 @@ var PreloadState = {
         game.load.tilemap('level1', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.tilemap('level2', 'assets/level2.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
+        game.load.spritesheet("harts","assets/life.png",43.5,200,4);
         game.time.advancedTiming.enable = true;
     },
     create: function() {

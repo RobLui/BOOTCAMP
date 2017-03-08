@@ -26,6 +26,7 @@ var death = 0;
 var lastEventTrackedTime = 0;
 
 var currentstate="";
+var nextState = "";
 
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
@@ -53,7 +54,6 @@ function Decreasehealth(){
       game.state.start(currentstate);
     }
   }
-  healthtext.text = health;
   navigator.vibrate(1000);
 }
 
@@ -81,7 +81,7 @@ function Laserhit(bal,laser)
 // WINGAME
 function Wingame()
 {
-  game.state.start('game');
+  game.state.start(nextState);
 }
 
 // HOLEHIT
@@ -89,7 +89,6 @@ function Holehit(bal,hole)
 {
   health = 3;
   game.state.start(currentstate);
-  healthtext.text = health;
 }
 
 // ENEMYTWEEN & HEALTH

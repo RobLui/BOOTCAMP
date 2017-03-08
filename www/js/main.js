@@ -54,7 +54,6 @@ function Decreasehealth(){
       game.state.start(currentstate);
     }
   }
-  healthtext.text = health;
   navigator.vibrate(1000);
 }
 
@@ -90,7 +89,6 @@ function Holehit(bal,hole)
 {
   health = 3;
   game.state.start(currentstate);
-  healthtext.text = health;
 }
 
 // ENEMYTWEEN & HEALTH

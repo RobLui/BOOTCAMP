@@ -1,4 +1,4 @@
-var LEVEL = {
+var LEVEL_1 = {
     create: function() {
         window.addEventListener("deviceorientation", HandleOrientation, true);
         game.add.image(1, 1, 'bg');
@@ -30,7 +30,9 @@ var LEVEL = {
         enemy.body.mass=10;
 
         // BAL A.K.A. PLAYER
-        bal     = game.add.sprite(50, 50, "bal");
+        bal = game.add.sprite(50, 50, "bal");
+        // bal.body.setCircle(45);
+        // bal.body.setCircle(45, 50, 50);
         game.physics.arcade.enable(bal);
         bal.enableBody=true;
         bal.body.collideWorldBounds = true;
@@ -50,7 +52,7 @@ var LEVEL = {
         map.setCollisionBetween(1, 12);
 
         // CURSORS
-        //cursors = game.input.keyboard.createCursorKeys();
+        cursors = game.input.keyboard.createCursorKeys();
 
         // HEALTH
         healthtext = game.add.text(250, 0, "2", {font: '5em Arial', fill: '#ff0000'});
@@ -61,7 +63,7 @@ var LEVEL = {
     update: function()
     {
       // CURSOR MOVEMENT
-      //CursorMovement();
+      CursorMovement();
       // BOUNCE WALLS
       game.physics.arcade.collide(layer, bal);
       // HOLE
@@ -69,7 +71,7 @@ var LEVEL = {
       // LASER
       game.physics.arcade.overlap(bal, laser, Laserhit, null, this);
       // WIN GAME
-      game.physics.arcade.overlap(bal, winningHole, Wingame, null, this);
+      game.physics.arcade.overlap(bal, winningHole, , null, this);
       // ENEMY
       game.physics.arcade.overlap(bal, enemy, Enemyhit, null, this);
       EnemyTween();
