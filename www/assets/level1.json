@@ -19,7 +19,7 @@
         {
          "columns":1,
          "firstgid":1,
-         "image":"..\/..\/..\/..\/Bootcamp\/BOOTCAMP\/www\/assets\/tileset.png",
+         "image":"tileset.png",
          "imageheight":64,
          "imagewidth":64,
          "margin":0,
