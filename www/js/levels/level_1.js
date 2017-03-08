@@ -11,6 +11,8 @@ var LEVEL_1 = {
         holes.create(505,255,"hole");
         holes.create(210,410,"hole");
         holes.create(50,505,"hole");
+        holes.create(505,360,"hole");
+        holes.create(505,605,"hole");
         //game.physics.arcade.enable(holes);
 
         // BAL A.K.A. PLAYER
