@@ -81,11 +81,8 @@ function Laserhit(bal,laser)
 // WINGAME
 function Wingame(bal,winningHole)
 {
-  if ((bal.body.position.x + 12.5) == (winningHole.body.position.x + 25) || (bal.body.position.y - 12.5) == (winningHole.body.position.y - 25))
-  {
     health = 3;
     game.state.start(nextState);
-  }
 }
 
 // HOLEHIT
