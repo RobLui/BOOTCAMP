@@ -26,6 +26,7 @@ var death = 0;
 var lastEventTrackedTime = 0;
 
 var currentstate="";
+var nextState = "";
 
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
@@ -81,7 +82,7 @@ function Laserhit(bal,laser)
 // WINGAME
 function Wingame()
 {
-  game.state.start('game');
+  game.state.start(nextState);
 }
 
 // HOLEHIT
