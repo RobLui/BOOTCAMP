@@ -4,7 +4,7 @@ var LEVEL_1 = {
         game.add.image(1, 1, 'bg');
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-
+        
         // HOLE / LOSING HOLE
         holes=game.add.group();
         holes.enableBody=true;

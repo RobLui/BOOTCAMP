@@ -5,11 +5,15 @@ var LEVEL_2 = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         // LASER
-        laser   = game.add.sprite(400,450,"laser");
-        laser.animations.add("blink",[0,1],1,true);
-        laser.animations.play("blink");
-        laser.enableBody=true;
-        game.physics.arcade.enable(laser);
+        lasers=game.add.group();
+        lasers.enableBody=true;
+        lasers.create(400,500,"laser");
+        lasers.create(150,155,"laser");
+        // lasers.animations.add("blink",[0,1],1,true);
+        //lasers.animations.play("blink");
+        lasers.callAll('animations.add', 'animations', "blink",[0,1],1,true);
+        lasers.callAll('animations.play', 'animations', 'blink');
+        game.physics.arcade.enable(lasers);
 
         // HOLE / LOSING HOLE
         holes=game.add.group();
@@ -58,7 +62,7 @@ var LEVEL_2 = {
       // HOLE
       game.physics.arcade.overlap(holes, bal, Holehit, null, this);
       // LASER
-      game.physics.arcade.overlap(bal, laser, Laserhit, null, this);
+      game.physics.arcade.overlap(bal, lasers, Laserhit, null, this);
       // WIN GAME
       game.physics.arcade.overlap(bal, winningHole, Wingame, null, this);
       // TIMER
