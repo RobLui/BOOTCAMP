@@ -20,34 +20,36 @@ var PreloadState = {
         game.load.spritesheet("harts","assets/life.png",180,50,4);
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
 
-        // EXTRA LIFE - Image has to be changed :) 
+        // EXTRA LIFE - Image has to be changed :)
         game.load.image('extraLife','assets/hole.png');
 
         //MUSIC
         game.load.audio('win', ['assets/win.wav']);
 
         //INTROS
-        game.load.image("intro_lvl2", "assets/intro_lvl2.png");
+        game.load.image("intro_lvl2", "assets/intros/intro_lvl2.png");
+        game.load.image("intro_lvl3", "assets/intros/intro_lvl3.png");
+        game.load.image("intro_lvl4", "assets/intros/intro_lvl4.png");
+        game.load.image("intro_lvl5", "assets/intros/intro_lvl5.png");
 
         //CREDITS
         game.load.image('credits', 'assets/credits.png');
         game.load.image('menuBtn','assets/menu_btn.png');
 
         //LEVEL 1
-        game.load.tilemap('level1', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.image('intro_level2', 'assets/intro_lvl2.png');
+        game.load.tilemap('level1', 'assets/json/level1.json', null, Phaser.Tilemap.TILED_JSON);
 
         //LEVEL 2
-        game.load.tilemap('level2', 'assets/level2.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.tilemap('level2', 'assets/json/level2.json', null, Phaser.Tilemap.TILED_JSON);
 
         //LEVEL 3
-        game.load.tilemap('level3', 'assets/level3.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.tilemap('level3', 'assets/json/level3.json', null, Phaser.Tilemap.TILED_JSON);
 
         //LEVEL 4
-        game.load.tilemap('level4', 'assets/level4.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.tilemap('level4', 'assets/json/level4.json', null, Phaser.Tilemap.TILED_JSON);
 
         //LEVEL 5
-        game.load.tilemap('level5', 'assets/level5.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.tilemap('level5', 'assets/json/level5.json', null, Phaser.Tilemap.TILED_JSON);
 
     },
     create: function() {

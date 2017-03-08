@@ -41,7 +41,7 @@ var LEVEL_2 = {
 
         // STATES
         currentstate="level2";
-        nextState="level3";
+        nextState="intro_lvl3";
 
         // MAP
         map = game.add.tilemap('level2');

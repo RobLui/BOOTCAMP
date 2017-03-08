@@ -23,13 +23,13 @@ OMGEVING & OMGEVINGSELEMENTEN
 
 
 TO-ADD
-  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Extra levens
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Enemy not flying
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Bouncing Ball
   - ![#0ac635](https://placehold.it/15/f03c15/000000?text=+) CameraTrigger
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Splash screen XML
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Doorgang activeren
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) (Vibrate)
+  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Extra levens
   - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Extra levels (2 more)
   - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) Duidelijk maken target
   - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) Ballen mooier maken

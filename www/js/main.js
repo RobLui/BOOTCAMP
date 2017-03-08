@@ -44,7 +44,7 @@ function TimeChecker()
 {
   var currentTime = game.time.time;
   elapsedTime = game.time.elapsedSecondsSince(lastEventTrackedTime);
-  console.log(elapsedTime);
+  // console.log(elapsedTime);
 }
 
 // DECREASE HEALTH
@@ -147,13 +147,25 @@ function CursorMovement()
 }
 
 // ------------------------------------------------------ ADDING STATES ------------------------------------------------------
+
+// CORE STATES
 game.state.add('preload', this.PreloadState );
+game.state.add('menu', this.menuState);
+game.state.add('instructions', this.instructionState);
+game.state.add('finished', this.finishedState);
+
+// LEVELS
 game.state.add('level1', this.LEVEL_1);
 game.state.add('level2', this.LEVEL_2);
 game.state.add('level3', this.LEVEL_3);
-game.state.add('intro_lvl2', this.intro_lvl2State);
-game.state.add('finished', this.finishedState);
-game.state.add('menu', this.menuState);
-game.state.add('instructions', this.instructionState);
+game.state.add('level4', this.LEVEL_4);
+game.state.add('level5', this.LEVEL_5);
 
+// INTROS
+game.state.add('intro_lvl2', this.intro_lvl2State);
+game.state.add('intro_lvl3', this.intro_lvl3State);
+game.state.add('intro_lvl4', this.intro_lvl3State);
+game.state.add('intro_lvl5', this.intro_lvl3State);
+
+// START
 game.state.start('preload');
