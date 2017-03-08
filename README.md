@@ -15,24 +15,22 @@ PLAYER & ENEMY STUFF
   - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Player
   - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Enemies
   - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Laser
-  - ![#0ac635](https://placehold.it/15/f03c15/000000?text=+) Camera
 
 OMGEVING & OMGEVINGSELEMENTEN
-  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Map (2 more)
+  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Map (2 more)
+  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Holes
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Moving walls
-  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Hole in the floor
-  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Hole to win
 
 
 TO-ADD
-  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Extra Levels (2 more)
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Extra levens
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Enemy not flying
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Bouncing Ball
-  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Camera's
+  - ![#0ac635](https://placehold.it/15/f03c15/000000?text=+) CameraTrigger
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Splash screen XML
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Doorgang activeren
   - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) (Vibrate)
+  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Extra levels (2 more)
   - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) Duidelijk maken target
   - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) Ballen mooier maken
   - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) Instructies
