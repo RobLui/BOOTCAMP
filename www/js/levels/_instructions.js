@@ -1,8 +1,8 @@
 var instructionState = {
     create: function() {
-        game.add.image(0, 0, 'bg');
-        logo = game.add.image(0, 0, 'instructionsHeader');
+        game.add.image(0, 0, 'instructions');
 
+        /*
         var playerLabel = game.add.text(game.world.centerX, game.world.centerY, "Player = ", {font: '3em Arial', fill: '#ffffff'});
         playerLabel.anchor.x=1;
         playerLabel.anchor.y=0.1;
@@ -36,7 +36,7 @@ var instructionState = {
         finish = game.add.image(game.world.centerX, game.world.centerY+200, 'winningHole');
         game.add.image(game.world.centerX, game.world.centerY+200, 'arrow');
         finish.anchor.x=-0.5;
-
+        */
 
         startBtn = game.add.button(game.world.width/5*4, game.world.centerY+300, 'play', this.start, this);
         startBtn.anchor.x=0.5;
