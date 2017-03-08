@@ -38,7 +38,7 @@ IMPORTANT & HELPFUL LINKS
   - [Tilemap tutorial 1](https://www.youtube.com/watch?v=C2_6lhYjkeE)
   - [Tilemap tutorial 2](https://www.youtube.com/watch?v=8a1uwG-Uefs&t=5s)
   - [Cheatsheet Awesomeness](https://gist.github.com/woubuc/6ef002051aeef453a95b)
-  
+
 TO-ADD
   - Extra Levels
   - (Vibrate)
@@ -51,13 +51,7 @@ TO-ADD
   - Bouncing Ball
   - Enemy not flying
   - Instructies
-
-
-
-
-
-
-
+  - Extra levens collectable
 
 ---
 Alessandro
