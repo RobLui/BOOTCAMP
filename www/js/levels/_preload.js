@@ -7,7 +7,7 @@ var PreloadState = {
         game.load.image('play','assets/play.png');
         game.load.image('back','assets/back.png');
         game.load.image('what','assets/what.png');
-        
+
         //OBJECTS
         game.load.image('bg', 'assets/bg.jpg');
         game.load.image('tileset','assets/tileset.png');
@@ -18,18 +18,30 @@ var PreloadState = {
         game.load.image('enemy','assets/enemy.png');
         game.load.spritesheet("harts","assets/life.png",180,50,4);
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
-        
+
         //CREDITS
         game.load.image('credits', 'assets/credits.png');
         game.load.image('menuBtn','assets/menu_btn.png');
-        
+
         //LEVEL 1
         game.load.tilemap('level1', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image('intro_level2', 'assets/intro_lvl2.png');
-        
+
         //LEVEL 2
         game.load.tilemap('level2', 'assets/level2.json', null, Phaser.Tilemap.TILED_JSON);
-        
+        // game.load.image('intro_level2', 'assets/intro_lvl3.png');
+
+        //LEVEL 3
+        game.load.tilemap('level3', 'assets/level3.json', null, Phaser.Tilemap.TILED_JSON);
+        // game.load.image('intro_level2', 'assets/intro_lvl4.png');
+
+        //LEVEL 4
+        game.load.tilemap('level4', 'assets/level4.json', null, Phaser.Tilemap.TILED_JSON);
+        // game.load.image('intro_level2', 'assets/intro_lvl5.png');
+
+        //LEVEL 5
+        game.load.tilemap('level4', 'assets/level4.json', null, Phaser.Tilemap.TILED_JSON);
+
     },
     create: function() {
         game.state.start("menu");
