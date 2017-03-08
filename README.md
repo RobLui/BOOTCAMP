@@ -1,59 +1,57 @@
 # BOOTCAMP TEAM SUPER
-
+---
 Requirements
 ---
 
 THE NAME OF OUR GAME
-  - The Supermaze - By RAMP
+  - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) The Supermaze - By RAMP
 
 MENUSCHERM
-  - Start - Maurits
-  - Instructions - Maurits
-  - Credits - Maurits
+  - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) Start
+  - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) Instructions
+  - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) All other images
 
 PLAYER & ENEMY STUFF
-  - Player
-  - Enemies (Actual things - 'non material enemy')
-  - Laser ('material enemy') - Allesandro
-  - Camera
+  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Player
+  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Enemies
+  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Laser
+  - ![#0ac635](https://placehold.it/15/f03c15/000000?text=+) Camera
 
 OMGEVING & OMGEVINGSELEMENTEN
-  - Map - Pieter
-  - Hole in the floor, subtract a life - Robbert
-  - Hole to win, next floor - Robbert
-  - Teleport portals - Robbert
-  - Moving walls
+  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Map (2 more)
+  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Moving walls
+  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Hole in the floor
+  - ![#0ac635](https://placehold.it/15/0ac635/000000?text=+) Hole to win
 
-AUDIO
-  - Enemy - Idle sound, aggressive sound
-  - Laser - Aiming, Firing, Opening sound
-  - Camera - Activating sound
-  - Player - Bouncing collider sound
-  - Level Success - winning sound
-  - Level Defeat - Defeat sound
-  - Hit sound, taking a hit sound - Life reducing sound?
-  - Teleport - Teleporting sound?
+
+TO-ADD
+  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Extra Levels (2 more)
+  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Extra levens
+  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Camera's
+  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) (Vibrate)
+  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Bouncing Ball
+  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Enemy not flying
+  - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Doorgang activeren
+  - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) Duidelijk maken target
+  - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) Ballen mooier maken
+  - ![#f03c15](https://placehold.it/15/0ac635/000000?text=+) Instructies
+  - ![#e31717](https://placehold.it/15/e31717/000000?text=+) Round Physics ARCADE
 
 IMPORTANT & HELPFUL LINKS
   - [Tilemap tutorial 1](https://www.youtube.com/watch?v=C2_6lhYjkeE)
   - [Tilemap tutorial 2](https://www.youtube.com/watch?v=8a1uwG-Uefs&t=5s)
   - [Cheatsheet Awesomeness](https://gist.github.com/woubuc/6ef002051aeef453a95b)
 
-TO-ADD
-  - Extra Levels
-  - (Vibrate)
-  - Camera's
-  - Extra: Enememy's, Holes,
-  - Doorgang activeren
-  - Duidelijk maken target
-  - Ballen mooier maken
-  - Round Physics ARCADE
-  - Bouncing Ball
-  - Enemy not flying
-  - Instructies
-  - Extra levens collectable
+<!-- AUDIO - OF STILLE GAME
+    - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Enemy
+    - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Laser
+    - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Camera(Trigger)
+    - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Player
+    - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Level Win
+    - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Level Defeat
+    - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Hit Sound -->
 
----
+<!-- ---
 Alessandro
 --
 SuperCool
@@ -68,4 +66,4 @@ SuperTof
 
 Maurits
 ---
-SuperLaat
+SuperLaat -->
