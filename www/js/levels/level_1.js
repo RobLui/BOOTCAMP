@@ -4,6 +4,9 @@ var LEVEL_1 = {
         game.add.image(1, 1, 'bg');
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
+        //ARROW
+        arrow =  game.add.sprite(450,700,"arrow");
+
         // LASER
         laser   = game.add.sprite(250,112.5,"laser");
         laser.animations.add("blink",[0,1],1,true);
