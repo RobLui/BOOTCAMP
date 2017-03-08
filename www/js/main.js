@@ -81,6 +81,8 @@ function Laserhit(bal,laser)
 // WINGAME
 function Wingame(bal,winningHole)
 {
+  music = game.add.audio('win');
+  music.play();
     health = 3;
     game.state.start(nextState);
 }

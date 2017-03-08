@@ -18,6 +18,8 @@ var PreloadState = {
         game.load.image('enemy','assets/enemy.png');
         game.load.spritesheet("harts","assets/life.png",180,50,4);
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
+        //MUSIC
+        game.load.audio('win', ['assets/win.wav']);
 
         //CREDITS
         game.load.image('credits', 'assets/credits.png');
