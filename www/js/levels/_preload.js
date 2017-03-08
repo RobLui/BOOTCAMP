@@ -25,7 +25,7 @@ var PreloadState = {
         
         //LEVEL 1
         game.load.tilemap('level1', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.image('intro_level2', 'assets/intro_level2.png');
+        game.load.image('intro_level2', 'assets/intro_lvl2.png');
         
         //LEVEL 2
         game.load.tilemap('level2', 'assets/level2.json', null, Phaser.Tilemap.TILED_JSON);
