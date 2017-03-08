@@ -118,7 +118,7 @@ function EnemyTween()
 }
 
 // CURSOR MOVEMENT
-function CursorMovement()
+/*function CursorMovement()
 {
   if (cursors.up.isDown)
   {
@@ -136,7 +136,7 @@ function CursorMovement()
   {
     bal.body.velocity.x = +300;
   }
-}
+}*/
 
 // ------------------------------------------------------ ADDING STATES ------------------------------------------------------
 game.state.add('preload', this.PreloadState );

@@ -47,7 +47,7 @@ var LEVEL_1 = {
         map.setCollisionBetween(1, 12);
 
         // CURSORS
-        cursors = game.input.keyboard.createCursorKeys();
+        //cursors = game.input.keyboard.createCursorKeys();
 
         // HEALTH
         healthtext = game.add.text(250, 0, "2", {font: '5em Arial', fill: '#ff0000'});
@@ -58,7 +58,7 @@ var LEVEL_1 = {
     update: function()
     {
       // CURSOR MOVEMENT
-      CursorMovement();
+      //CursorMovement();
       // BOUNCE WALLS
       game.physics.arcade.collide(layer, bal);
       // HOLE
