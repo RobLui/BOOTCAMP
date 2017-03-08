@@ -13,7 +13,7 @@ var menuState = {
       instrBtn.anchor.x=0.5;
     },
     start: function() {
-        game.state.start('game');
+        game.state.start('level1');
     },
     instruction: function() {
         game.state.start('instructions');

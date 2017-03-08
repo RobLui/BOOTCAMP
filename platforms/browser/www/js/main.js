@@ -1,7 +1,7 @@
-var game = new Phaser.Game(600, 800, Phaser.AUTO, "");
+var game = new Phaser.Game(600, 800, Phaser.CANVAS, "");
 
 // ------------------------------------------------------ GLOBALS ------------------------------------------------------
-var speed = 3;
+var speed = 9;
 var health = 3;
 
 var map;
@@ -25,16 +25,15 @@ var waitingTime = 1; // In seconde
 var death = 0;
 var lastEventTrackedTime = 0;
 
+var currentstate="";
+
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
 // DEVICE ORIENTATION
 function HandleOrientation(e)
 {
-  deltaTime = (game.time.elapsedMS);
-  var x = e.gamma;
-  var y = e.beta;
-  bal.body.velocity.x = x * speed * deltaTime;
-  bal.body.velocity.y = y * speed * deltaTime;
+  bal.body.velocity.x = e.gamma * speed;
+  bal.body.velocity.y =  e.beta * speed;
 }
 
 // UPDATE TIME
@@ -51,14 +50,11 @@ function Decreasehealth(){
     health--;
     if (health == death) {
       health = 3;
-      game.state.start('game');
+      game.state.start(currentstate);
     }
   }
   healthtext.text = health;
-  if( "vibrate" in window.navigator)
-  {
-      window.navigator.vibrate(100);
-  }
+  navigator.vibrate(1000);
 }
 
 // ENEMYHIT
@@ -91,14 +87,8 @@ function Wingame()
 // HOLEHIT
 function Holehit(bal,hole)
 {
-
-  if (elapsedTime > waitingTime ) {
-    health--;
-    if (health == death) {
-      health = 3;
-      game.state.start('game');
-    }
-  }
+  health = 3;
+  game.state.start(currentstate);
   healthtext.text = health;
 }
 
@@ -139,7 +129,8 @@ function CursorMovement()
 
 // ------------------------------------------------------ ADDING STATES ------------------------------------------------------
 game.state.add('preload', this.PreloadState );
-game.state.add('game', this.LEVEL_1);
+game.state.add('level1', this.LEVEL_1);
+game.state.add('level2', this.LEVEL_2);
 game.state.add('menu', this.menuState);
 game.state.add('instructions', this.instructionState);
 

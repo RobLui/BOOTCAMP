@@ -5,11 +5,12 @@ var LEVEL_1 = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         // HOLE / LOSING HOLE
-        hole   = game.add.sprite(220,375,"hole");
-        hole.enableBody=true;
-        game.physics.arcade.enable(hole);
-        hole.anchor.y=0.5;
-        hole.anchor.x=0.5;
+        holes=game.add.group();
+        holes.enableBody=true;
+        holes.create(505,255,"hole");
+        holes.create(210,410,"hole");
+        holes.create(50,505,"hole");
+        //game.physics.arcade.enable(holes);
 
         // BAL A.K.A. PLAYER
         bal     = game.add.sprite(50, 50, "bal");
@@ -32,7 +33,8 @@ var LEVEL_1 = {
         map.setCollisionBetween(1, 12);
 
         // CURSORS
-        //cursors = game.input.keyboard.createCursorKeys();
+        cursors = game.input.keyboard.createCursorKeys();
+        currentstate="level1";
 
         // HEALTH
         healthtext = game.add.text(250, 0, "3", {font: '5em Arial', fill: '#ff0000'});
@@ -43,11 +45,13 @@ var LEVEL_1 = {
     update: function()
     {
       // CURSOR MOVEMENT
-      //CursorMovement();
+      CursorMovement();
+      // TIMECHECKER
+      TimeChecker();
       // BOUNCE WALLS
       game.physics.arcade.collide(layer, bal);
       // HOLE
-      game.physics.arcade.overlap(hole, bal, Holehit, null, this);
+      game.physics.arcade.overlap(bal, holes, Holehit, null, this);
       // WIN GAME
       game.physics.arcade.overlap(bal, winningHole, Wingame, null, this);
     }

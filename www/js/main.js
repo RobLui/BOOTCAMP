@@ -25,6 +25,8 @@ var waitingTime = 1; // In seconde
 var death = 0;
 var lastEventTrackedTime = 0;
 
+var currentstate="";
+
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
 // DEVICE ORIENTATION
@@ -48,7 +50,7 @@ function Decreasehealth(){
     health--;
     if (health == death) {
       health = 3;
-      game.state.start('game');
+      game.state.start(currentstate);
     }
   }
   healthtext.text = health;
@@ -85,14 +87,8 @@ function Wingame()
 // HOLEHIT
 function Holehit(bal,hole)
 {
-
-  if (elapsedTime > waitingTime ) {
-    health--;
-    if (health == death) {
-      health = 3;
-      game.state.start('game');
-    }
-  }
+  health = 3;
+  game.state.start(currentstate);
   healthtext.text = health;
 }
 
