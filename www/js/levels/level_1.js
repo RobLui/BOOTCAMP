@@ -36,7 +36,7 @@ var LEVEL_1 = {
         map.setCollisionBetween(1, 12);
 
         //HEALTH
-        life=game.add.sprite(220, 0, "harts");
+        life = game.add.sprite(220, 0, "harts");
 
         // CURSORS
         cursors = game.input.keyboard.createCursorKeys();

@@ -79,17 +79,23 @@ function Laserhit(bal,laser)
 }
 
 // WINGAME
-function Wingame()
+function Wingame(bal,winningHole)
 {
-  game.state.start(nextState);
-  health=3;
+  if ((bal.body.position.x + 12.5) == (winningHole.body.position.x + 25) || (bal.body.position.y - 12.5) == (winningHole.body.position.y - 25))
+  {
+    health = 3;
+    game.state.start(nextState);
+  }
 }
 
 // HOLEHIT
 function Holehit(bal,hole)
 {
-  health = 3;
-  game.state.start(currentstate);
+  if ((bal.body.position.x + 12.5) == (hole.body.position.x + 12.5) || (bal.body.position.y - 12.5) == (hole.body.position.y - 12.5))
+  {
+    health = 3;
+    game.state.start(currentstate);
+  }
 }
 
 // ENEMYTWEEN & HEALTH
