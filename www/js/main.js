@@ -52,10 +52,7 @@ function Decreasehealth(){
     }
   }
   healthtext.text = health;
-  if( "vibrate" in window.navigator)
-  {
-      window.navigator.vibrate(1000);
-  }
+  navigator.vibrate(1000);
 }
 
 // ENEMYHIT

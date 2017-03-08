@@ -38,6 +38,25 @@ IMPORTANT & HELPFUL LINKS
   - [Tilemap tutorial 1](https://www.youtube.com/watch?v=C2_6lhYjkeE)
   - [Tilemap tutorial 2](https://www.youtube.com/watch?v=8a1uwG-Uefs&t=5s)
   - [Cheatsheet Awesomeness](https://gist.github.com/woubuc/6ef002051aeef453a95b)
+----
+
+TO-ADD
+  - Extra Levels
+  - (Vibrate)
+  - Camera's
+  - Extra: Enememy's, Holes,
+  - Doorgang activeren
+  - Duidelijk maken target
+  - Ballen mooier maken
+  - Round Physics ARCADE
+  - Bouncing Ball
+  - Enemy not flying
+  - Instructies
+
+
+
+
+
 
 
 
