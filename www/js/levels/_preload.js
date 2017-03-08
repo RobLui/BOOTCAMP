@@ -11,6 +11,7 @@ var PreloadState = {
         game.load.image('back','assets/back.png');
         game.load.image('arrow','assets/arrow.png');
         game.load.image('what','assets/what.png');
+        game.load.image('menuBtn','assets/menu_btn.png');
         game.load.image('winningHole','assets/winningHole.png');
         game.load.image('enemy','assets/enemy.png');
         game.load.spritesheet("harts","assets/life.png",180,50,4);
