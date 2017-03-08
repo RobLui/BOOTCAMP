@@ -1,4 +1,4 @@
-var game = new Phaser.Game(600, 800, Phaser.AUTO, "");
+var game = new Phaser.Game(600, 800, Phaser.CANVAS, "");
 
 // ------------------------------------------------------ GLOBALS ------------------------------------------------------
 var speed = 3;
@@ -58,7 +58,7 @@ function Decreasehealth(){
   healthtext.text = health;
   if( "vibrate" in window.navigator)
   {
-      window.navigator.vibrate(100);
+      window.navigator.vibrate(1000);
   }
 }
 
