@@ -19,7 +19,6 @@ var fpsText;
 
 var currentTime;
 var nextTime;
-var deltaTime;
 
 var elapsedTime;
 var waitingTime = 1; // In seconde
@@ -31,11 +30,8 @@ var lastEventTrackedTime = 0;
 // DEVICE ORIENTATION
 function HandleOrientation(e)
 {
-  deltaTime = (game.time.elapsedMS);
-  var x = e.gamma;
-  var y = e.beta;
-  bal.body.velocity.x = x * speed * deltaTime;
-  bal.body.velocity.y = y * speed * deltaTime;
+  bal.body.velocity.x = e.gamma * speed;
+  bal.body.velocity.y =  e.beta * speed;
 }
 
 // UPDATE TIME
@@ -118,7 +114,7 @@ function EnemyTween()
 }
 
 // CURSOR MOVEMENT
-/*function CursorMovement()
+function CursorMovement()
 {
   if (cursors.up.isDown)
   {
@@ -136,7 +132,7 @@ function EnemyTween()
   {
     bal.body.velocity.x = +300;
   }
-}*/
+}
 
 // ------------------------------------------------------ ADDING STATES ------------------------------------------------------
 game.state.add('preload', this.PreloadState );

@@ -19,7 +19,6 @@ var fpsText;
 
 var currentTime;
 var nextTime;
-var deltaTime;
 
 var elapsedTime;
 var waitingTime = 1; // In seconde
