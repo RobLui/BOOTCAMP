@@ -164,8 +164,8 @@ game.state.add('level5', this.LEVEL_5);
 // INTROS
 game.state.add('intro_lvl2', this.intro_lvl2State);
 game.state.add('intro_lvl3', this.intro_lvl3State);
-game.state.add('intro_lvl4', this.intro_lvl3State);
-game.state.add('intro_lvl5', this.intro_lvl3State);
+game.state.add('intro_lvl4', this.intro_lvl4State);
+game.state.add('intro_lvl5', this.intro_lvl5State);
 
 // START
 game.state.start('preload');
