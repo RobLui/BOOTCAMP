@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ramp.thesupermaze" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>The SuperMaze</name>
+    <description>
+        RAMP presents The SuperMaze.
+    </description>
+    <author email="ramp@gmail.com" href="http://thesupermaze.com">
+        RAMP
+    </author>
+    <content src="index.html" />
+    <icon gap:platform="android" src="www/assets/logo250.png" />
+    <splash platform="android" qualifier="hdpi" src="loading.png" />
+    <access origin="*" />
+    <preference name="SplashScreen" value="splash" />
+</widget>

@@ -82,6 +82,7 @@ function Laserhit(bal,laser)
 function Wingame()
 {
   game.state.start(nextState);
+  health=3;
 }
 
 // HOLEHIT
