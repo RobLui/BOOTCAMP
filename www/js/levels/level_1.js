@@ -24,6 +24,7 @@ var LEVEL_1 = {
         game.physics.arcade.enable(winningHole);
         winningHole.anchor.y=0.5;
         winningHole.anchor.x=0.5;
+        currentstate="level1";
 
         // MAP
         map = game.add.tilemap('level1');
@@ -34,7 +35,6 @@ var LEVEL_1 = {
 
         // CURSORS
         cursors = game.input.keyboard.createCursorKeys();
-        currentstate="level1";
 
         // HEALTH
         healthtext = game.add.text(250, 0, "3", {font: '5em Arial', fill: '#ff0000'});

@@ -30,6 +30,7 @@ var LEVEL_2 = {
         game.physics.arcade.enable(winningHole);
         winningHole.anchor.y=0.5;
         winningHole.anchor.x=0.5;
+        currentstate="level2";
 
         // MAP
         map = game.add.tilemap('level2');

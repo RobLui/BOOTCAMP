@@ -69,7 +69,7 @@ var LEVEL = {
       // LASER
       game.physics.arcade.overlap(bal, laser, Laserhit, null, this);
       // WIN GAME
-      game.physics.arcade.overlap(bal, winningHole, Wingame, null, this);
+      game.physics.arcade.overlap(bal, winningHole, game.state.start('level2'), null, this);
       // ENEMY
       game.physics.arcade.overlap(bal, enemy, Enemyhit, null, this);
       EnemyTween();
