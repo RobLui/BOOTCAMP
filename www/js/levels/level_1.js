@@ -25,6 +25,7 @@ var LEVEL_1 = {
         winningHole.anchor.y=0.5;
         winningHole.anchor.x=0.5;
         currentstate="level1";
+        nextState="level2";
 
         // MAP
         map = game.add.tilemap('level1');
