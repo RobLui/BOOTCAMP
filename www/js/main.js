@@ -88,11 +88,11 @@ function Wingame(bal,winningHole)
 // HOLEHIT
 function Holehit(bal,hole)
 {
-  if ((bal.body.position.x + 12.5) == (hole.body.position.x + 12.5) || (bal.body.position.y - 12.5) == (hole.body.position.y - 12.5))
-  {
+  // if ((bal.body.position.x + 12.5) == (hole.body.position.x + 12.5) || (bal.body.position.y - 12.5) == (hole.body.position.y - 12.5))
+  // {
     health = 3;
     game.state.start(currentstate);
-  }
+  // 
 }
 
 // ENEMYTWEEN & HEALTH
