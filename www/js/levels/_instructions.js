@@ -1,8 +1,7 @@
 var instructionState = {
     create: function() {
         game.add.image(0, 0, 'bg');
-        logo = game.add.image(0, 0, 'logo');
-        logo.scale.setTo(0.3,0.3);
+        logo = game.add.image(0, 0, 'instructionsHeader');
         
         var playerLabel = game.add.text(game.world.centerX, game.world.centerY, "Player = ", {font: '3em Arial', fill: '#ffffff'});
         playerLabel.anchor.x=1;
