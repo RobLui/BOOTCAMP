@@ -16,7 +16,8 @@ var LEVEL_2 = {
         holes.enableBody=true;
         holes.create(55,710,"hole");
         holes.create(155,300,"hole");
-        holes.create(405,250,"hole");
+        holes.create(405,255,"hole");
+        holes.create(355,155,"hole");
 
         // BAL A.K.A. PLAYER
         bal = game.add.sprite(50, 50, "bal");
