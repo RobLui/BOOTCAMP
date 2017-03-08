@@ -8,6 +8,7 @@ var PreloadState = {
         game.load.image('back','assets/back.png');
         game.load.image('what','assets/what.png');
 
+
         //OBJECTS
         game.load.image('bg', 'assets/bg.jpg');
         game.load.image('tileset','assets/tileset.png');
@@ -18,8 +19,13 @@ var PreloadState = {
         game.load.image('enemy','assets/enemy.png');
         game.load.spritesheet("harts","assets/life.png",180,50,4);
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
+
         //MUSIC
         game.load.audio('win', ['assets/win.wav']);
+
+        //INTROS
+        game.load.image("intro_lvl2", "assets/intro_lvl2.png");
+
 
         //CREDITS
         game.load.image('credits', 'assets/credits.png');

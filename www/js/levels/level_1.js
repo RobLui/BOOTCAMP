@@ -4,7 +4,7 @@ var LEVEL_1 = {
         game.add.image(1, 1, 'bg');
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-        
+
         // HOLE / LOSING HOLE
         holes=game.add.group();
         holes.enableBody=true;
@@ -28,7 +28,7 @@ var LEVEL_1 = {
         winningHole.anchor.y=0.5;
         winningHole.anchor.x=0.5;
         currentstate="level1";
-        nextState="level2";
+        nextState="intro_lvl2";
 
         // MAP
         map = game.add.tilemap('level1');

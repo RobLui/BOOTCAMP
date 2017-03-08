@@ -28,6 +28,7 @@ var lastEventTrackedTime = 0;
 var currentstate="";
 var nextState = "";
 
+var background;
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
 // DEVICE ORIENTATION
@@ -137,7 +138,7 @@ game.state.add('preload', this.PreloadState );
 game.state.add('level1', this.LEVEL_1);
 game.state.add('level2', this.LEVEL_2);
 game.state.add('level3', this.LEVEL_3);
-game.state.add('level4', this.LEVEL_4);
+game.state.add('intro_lvl2', this.intro_lvl2State);
 game.state.add('finished', this.finishedState);
 game.state.add('menu', this.menuState);
 game.state.add('instructions', this.instructionState);
