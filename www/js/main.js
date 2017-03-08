@@ -1,7 +1,7 @@
 var game = new Phaser.Game(600, 800, Phaser.CANVAS, "");
 
 // ------------------------------------------------------ GLOBALS ------------------------------------------------------
-var speed = 3;
+var speed = 9;
 var health = 3;
 
 var map;
