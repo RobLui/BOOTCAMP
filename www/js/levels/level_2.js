@@ -19,7 +19,7 @@ var LEVEL_2 = {
         holes.create(405,250,"hole");
 
         // BAL A.K.A. PLAYER
-        bal     = game.add.sprite(50, 50, "bal");
+        bal = game.add.sprite(50, 50, "bal");
         game.physics.arcade.enable(bal);
         bal.enableBody=true;
         bal.body.collideWorldBounds = true;
@@ -43,9 +43,8 @@ var LEVEL_2 = {
         // CURSORS
         cursors = game.input.keyboard.createCursorKeys();
 
-        // HEALTH
-        healthtext = game.add.text(250, 0, "2", {font: '5em Arial', fill: '#ff0000'});
-        healthtext.text = health;
+        //HEALTH
+        life=game.add.sprite(220, 0, "harts");
     },
 
     // UPDATE
@@ -64,5 +63,6 @@ var LEVEL_2 = {
       // TIMER
       TimeChecker();
       // game.physics.arcade.collide(enemy, bal);
+      life.frame = health;
     }
 };

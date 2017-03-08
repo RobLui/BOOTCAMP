@@ -4,8 +4,6 @@ var LEVEL_1 = {
         game.add.image(1, 1, 'bg');
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-        life=game.add.sprite(50, 50, "harts");
-
 
         // HOLE / LOSING HOLE
         holes=game.add.group();
@@ -16,7 +14,7 @@ var LEVEL_1 = {
         //game.physics.arcade.enable(holes);
 
         // BAL A.K.A. PLAYER
-        bal     = game.add.sprite(50, 50, "bal");
+        bal = game.add.sprite(50, 50, "bal");
         game.physics.arcade.enable(bal);
         bal.enableBody=true;
         bal.body.collideWorldBounds = true;
@@ -36,6 +34,9 @@ var LEVEL_1 = {
         layer = map.createLayer('Tilelaag 1');
         layer.resizeWorld();
         map.setCollisionBetween(1, 12);
+
+        //HEALTH
+        life=game.add.sprite(220, 0, "harts");
 
         // CURSORS
         cursors = game.input.keyboard.createCursorKeys();
