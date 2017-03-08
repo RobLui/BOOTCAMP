@@ -8,6 +8,7 @@
         RAMP
     </author>
     <content src="index.html" />
+    <preference name="SplashScreen" value="splash" />
     <icon src="www/assets/logo250.png"   gap:platform="android"/>
     <splash src="bg.jpg" platform="android" qualifier="hdpi" />
     <access origin="*" />
