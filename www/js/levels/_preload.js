@@ -6,6 +6,8 @@ var PreloadState = {
         game.load.image('logo', 'assets/logo.png');
         game.load.image('bg', 'assets/bg.jpg');
         game.load.image('play','assets/play.png');
+        game.load.image('back','assets/back.png');
+        game.load.image('arrow','assets/arrow.png');
         game.load.image('what','assets/what.png');
         game.load.image('winningHole','assets/winningHole.png');
         game.load.image('enemy','assets/enemy.png');
