@@ -14,5 +14,6 @@
     <icon gap:platform="android" src="www/assets/logo250.png" />
     <splash platform="android" qualifier="hdpi" src="www/assets/menu/loading.png" />
     <access origin="*" />
+    <preference name="SplashScreen" value="splash" />
     <preference name="orientation" value="portrait" />
 </widget>
