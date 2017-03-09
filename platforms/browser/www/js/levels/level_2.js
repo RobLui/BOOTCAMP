@@ -68,8 +68,7 @@ var LEVEL_2 = {
       game.physics.arcade.overlap(bal, lasers, Laserhit, null, this);
       // WIN GAME
       game.physics.arcade.overlap(bal, winningHole, Wingame, null, this);
-      // HEALTH
-      game.physics.arcade.overlap(bal, extraLife, AddLife, null, this);
+
       life.frame = health;
     }
 };

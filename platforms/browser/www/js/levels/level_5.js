@@ -74,12 +74,6 @@ var LEVEL_5 = {
         winningHole.anchor.y=0.5;
         winningHole.anchor.x=0.5;
 
-        // EXTRA LIFE
-        extraLife = game.add.group();
-        extraLife.enableBody=true;
-        extraLife.create(55,400,"extraLife");
-        game.physics.arcade.enable(extraLife);
-
         // STATES
         currentstate="level5";
         nextState="finished";
@@ -101,9 +95,8 @@ var LEVEL_5 = {
         movingwall2.enableBody=true;
         game.physics.arcade.enable(movingwall2);
         movingwall2.body.immovable=true;
-        // CURSORS
-        cursors = game.input.keyboard.createCursorKeys();
 
+        fixFallthrough();
         //HEALTH
         life=game.add.sprite(220, 0, "harts");
     },
@@ -156,6 +149,7 @@ var LEVEL_5 = {
       game.physics.arcade.overlap(bal,activator1,this.MoveWall1,null,this);
       game.physics.arcade.overlap(bal,activator2,this.MoveWall2,null,this);
       this.EnemyTween();
+      // console.log(extraLife);
     },
     // HEALTH
     MoveWall1: function()

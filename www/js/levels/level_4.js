@@ -76,9 +76,7 @@ var LEVEL_4 = {
 
         //HEALTH
         life = game.add.sprite(220, 0, "harts");
-
-        // CURSORS
-        cursors = game.input.keyboard.createCursorKeys();
+        fixFallthrough();
     },
     EnemyTween:function()
     {
