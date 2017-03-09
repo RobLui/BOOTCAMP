@@ -1,35 +1,30 @@
 var game = new Phaser.Game(600, 800, Phaser.CANVAS, "");
 
 // ------------------------------------------------------ GLOBALS ------------------------------------------------------
-var speed = 15;
+
+// HEALTH
 var health = 3;
-
-var map;
-var layer;
-var hole;
+var maxHealth = 3;
 var extraLife;
+var death = 0;
 
-var style;
-var timeText;
-var time;
-var timer;
-var timeString;
-
-var fpsString;
-var fpsText;
-
+// TIME
 var currentTime;
 var nextTime;
-
 var elapsedTime;
 var waitingTime = 1; // In seconde
-var death = 0;
 var lastEventTrackedTime = 0;
 
+// STATES
 var currentstate="";
 var nextState = "";
 
-var background;
+var map;
+var hole;
+var layer;
+
+var speed = 15;
+
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
 // DEVICE ORIENTATION
@@ -53,7 +48,7 @@ function Decreasehealth()
   if (elapsedTime > waitingTime ) {
     health--;
     if (health == death) {
-      health = 3;
+      health = maxHealth;
       game.state.start(currentstate);
     }
   }
@@ -75,9 +70,9 @@ function Laserhit(bal,laser)
 {
   if(laser.animations.frame==0)
   {
-      Decreasehealth();
-      //Elapsed time (seconds) since the last event tracked
-      lastEventTrackedTime = game.time.time;
+    Decreasehealth();
+    //Elapsed time (seconds) since the last event tracked
+    lastEventTrackedTime = game.time.time;
   }
 }
 
@@ -86,7 +81,7 @@ function Wingame(bal,winningHole)
 {
     music = game.add.audio('win');
     music.play();
-    health = 3;
+    health = maxHealth;
     game.state.start(nextState);
 }
 
@@ -95,7 +90,7 @@ function Holehit(bal,hole)
 {
   // if ((bal.body.position.x + 12.5) == (hole.body.position.x + 12.5) || (bal.body.position.y - 12.5) == (hole.body.position.y - 12.5))
   // {
-    health = 3;
+    health = maxHealth;
     game.state.start(currentstate);
   //
 }
