@@ -58,6 +58,6 @@ var PreloadState = {
         game.load.tilemap('level5', 'assets/json/level5.json', null, Phaser.Tilemap.TILED_JSON);
     },
     create: function() {
-        game.state.start("level5");
+        game.state.start("menu");
     }
 };

@@ -32,6 +32,17 @@ var LEVEL_5 = {
         holes.create(105,605,"hole");
         holes.create(305,455,"hole");
 
+        // ACTIVATEWALL
+        activator1 = game.add.sprite(55, 305, "activateWall");
+        activator1.enableBody=true;
+        game.physics.arcade.enable(activator1);
+        checkifWallisOpen1=false;
+
+        activator2 = game.add.sprite(505, 355, "activateWall");
+        activator2.enableBody=true;
+        game.physics.arcade.enable(activator2);
+        checkifWallisOpen2=false;
+
         //ENEMY
         enemy1 = game.add.sprite(250, 250, 'enemy');
         walk1 = enemy1.animations.add('walk1');
@@ -82,6 +93,16 @@ var LEVEL_5 = {
         layer.resizeWorld();
         map.setCollisionBetween(1, 12);
 
+        //WALLS
+        movingwall1 = game.add.sprite(300, 650, "movingWall");
+        movingwall1.enableBody=true;
+        game.physics.arcade.enable(movingwall1);
+        movingwall1.body.immovable=true;
+
+        movingwall2 = game.add.sprite(400, 650, "movingWall");
+        movingwall2.enableBody=true;
+        game.physics.arcade.enable(movingwall2);
+        movingwall2.body.immovable=true;
         // CURSORS
         cursors = game.input.keyboard.createCursorKeys();
 
@@ -97,16 +118,16 @@ var LEVEL_5 = {
          enemy1.body.velocity.x -= 5;
 
       if(enemy2.body.position.y <= 100)
-          enemy2.body.velocity.y += 5;
+          enemy2.body.velocity.y += 10;
 
       if(enemy2.body.position.y >= 150)
-          enemy2.body.velocity.y -= 5;
+          enemy2.body.velocity.y -= 10;
 
       if(enemy3.body.position.x >= 500)
-          enemy3.body.velocity.x -= 100;
+          enemy3.body.velocity.x -= 200;
 
       if(enemy3.body.position.x <= 400)
-          enemy3.body.velocity.x += 100;
+          enemy3.body.velocity.x += 200;
 
     },
     // UPDATE
@@ -118,6 +139,10 @@ var LEVEL_5 = {
       TimeChecker();
       // BOUNCE WALLS
       game.physics.arcade.collide(layer, bal);
+      game.physics.arcade.collide(movingwall1, bal);
+      game.physics.arcade.collide(movingwall1, layer);
+      game.physics.arcade.collide(movingwall2, layer);
+      game.physics.arcade.collide(movingwall2, bal);
       // HOLE
       game.physics.arcade.overlap(holes, bal, Holehit, null, this);
       // LASER
@@ -127,14 +152,31 @@ var LEVEL_5 = {
       // HEALTH
       game.physics.arcade.overlap(bal, extraLife, AddLife, null, this);
       life.frame = health;
+      // ENEMY
+      game.physics.arcade.overlap(bal, enemy1, Enemyhit, null, this);
+      game.physics.arcade.overlap(bal, enemy2, Enemyhit, null, this);
+      game.physics.arcade.overlap(bal, enemy3, Enemyhit, null, this);
+
+      game.physics.arcade.overlap(bal,activator1,this.MoveWall1,null,this);
+      game.physics.arcade.overlap(bal,activator2,this.MoveWall2,null,this);
       this.EnemyTween();
+      game.physics.arcade.overlap(bal, extraLife, AddLife, null, this);
     },
+    // HEALTH
     MoveWall1: function()
     {
         if(checkifWallisOpen1==false)
         {
-            tweenWall = game.add.tween(movingwall1).to({y: 650}, 1000, Phaser.Easing.Linear.None,true, 0,0, false);
+            tweenWall = game.add.tween(movingwall1).to({y: 700}, 1000, Phaser.Easing.Linear.None,true, 0,0, false);
             checkifWallisOpen1=true;
         }
     },
+    MoveWall2: function()
+    {
+        if(checkifWallisOpen2==false)
+        {
+            tweenWall = game.add.tween(movingwall2).to({y: 700}, 1000, Phaser.Easing.Linear.None,true, 0,0, false);
+            checkifWallisOpen2=true;
+        }
+    }
 };
