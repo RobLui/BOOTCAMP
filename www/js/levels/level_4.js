@@ -43,7 +43,7 @@ var LEVEL_4 = {
         extraLife.create(55,400,"extraLife");
 
         // STATES
-        currentstate="level3";
+        currentstate="level4";
         nextState="finished";
 
         // MAP

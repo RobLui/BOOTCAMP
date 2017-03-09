@@ -52,8 +52,8 @@ var LEVEL_3 = {
         //extraLife.create(55,400,"extraLife");
 
         // STATES
-        currentstate="level4";
-        nextState="finished";
+        currentstate="level3";
+        nextState="intro_lvl4";
 
         // MAP
         map = game.add.tilemap('level3');
