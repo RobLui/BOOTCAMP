@@ -46,17 +46,12 @@ var LEVEL_3 = {
         winningHole.anchor.y=0.5;
         winningHole.anchor.x=0.5;
 
-        // EXTRA LIFE
-        extraLife = game.add.group();
-        extraLife.enableBody=true;
-        //extraLife.create(55,400,"extraLife");
-
         // STATES
-        currentstate="level4";
-        nextState="finished";
+        currentstate="level3";
+        nextState="intro_lvl4";
 
         // MAP
-        map = game.add.tilemap('level4');
+        map = game.add.tilemap('level3');
         map.addTilesetImage('tileset', 'tileset');
         layer = map.createLayer('Tilelaag 1');
         layer.resizeWorld();
@@ -66,15 +61,19 @@ var LEVEL_3 = {
         movingwall1 = game.add.sprite(400, 250, "movingWall");
         movingwall1.enableBody=true;
         game.physics.arcade.enable(movingwall1);
+        movingwall1.body.immovable=true;
 
         movingwall2 = game.add.sprite(400, 600, "movingWall");
         movingwall2.enableBody=true;
         game.physics.arcade.enable(movingwall2);
+        movingwall2.body.immovable=true;
         // CURSORS
         cursors = game.input.keyboard.createCursorKeys();
 
         //HEALTH
         life=game.add.sprite(220, 0, "harts");
+
+        fixFallthrough();
     },
 
     // UPDATE

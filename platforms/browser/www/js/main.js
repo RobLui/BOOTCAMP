@@ -12,7 +12,7 @@ var death = 0;
 var currentTime;
 var nextTime;
 var elapsedTime;
-var waitingTime = 1; // In seconde
+var waitingTime = 0.5; // In seconde
 var lastEventTrackedTime = 0;
 
 // STATES
@@ -26,6 +26,10 @@ var layer;
 var speed = 15;
 
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
+
+function fixFallthrough(){
+  game.physics.arcade.TILE_BIAS = 40;
+}
 
 // DEVICE ORIENTATION
 function HandleOrientation(e)
@@ -47,22 +51,22 @@ function Decreasehealth()
 {
   if (elapsedTime > waitingTime ) {
     health--;
+    // window.navigator.vibrate(1000);
     if (health == death) {
       health = maxHealth;
       game.state.start(currentstate);
     }
+    if (game.device.vibration) {
+          window.navigator.vibrate(1000);
+      }
   }
-  navigator.vibrate(1000);
 }
 
 // ENEMYHIT
 function Enemyhit(bal,enemy)
 {
-  if (TimeChecker() > waitingTime )
-  {
     Decreasehealth();
-  }
-  lastEventTrackedTime = game.time.time;
+    lastEventTrackedTime = game.time.time;
 }
 
 // LASERHIT

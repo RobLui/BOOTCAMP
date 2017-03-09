@@ -12,7 +12,7 @@ var death = 0;
 var currentTime;
 var nextTime;
 var elapsedTime;
-var waitingTime = 1; // In seconde
+var waitingTime = 0.5; // In seconde
 var lastEventTrackedTime = 0;
 
 // STATES
@@ -65,11 +65,8 @@ function Decreasehealth()
 // ENEMYHIT
 function Enemyhit(bal,enemy)
 {
-  if (TimeChecker() > waitingTime )
-  {
     Decreasehealth();
-  }
-  lastEventTrackedTime = game.time.time;
+    lastEventTrackedTime = game.time.time;
 }
 
 // LASERHIT

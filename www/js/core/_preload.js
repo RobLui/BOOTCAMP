@@ -2,6 +2,12 @@ var PreloadState = {
     preload: function() {
         game.time.advancedTiming.enable = true;
 
+        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
+        game.scale.pageAlignHorizontally = true;
+        game.scale.pageAlignVertically = true;
+        game.scale.parentIsWindow = true;
+        game.scale.refresh();
+
         //MENU
         game.load.image('logo', 'assets/logo/logo.png');
         game.load.image('instructions', 'assets/menu/instructions.png');
@@ -12,7 +18,7 @@ var PreloadState = {
         //CREDITS
         game.load.image('credits', 'assets/menu/credits.png');
         game.load.image('menuBtn','assets/menu/menu_btn.png');
-        
+
         //OBJECTS
         game.load.image('bg', 'assets/game/bg.jpg');
         game.load.image('tileset','assets/game/tileset.png');
@@ -22,7 +28,7 @@ var PreloadState = {
         game.load.image('winningHole','assets/game/winningHole.png');
         game.load.image('activateWall','assets/game/activateWall.png');
         game.load.image('movingWall','assets/game/movingWall.png');
-        game.load.image('enemy','assets/game/enemy.png');
+        game.load.spritesheet('enemy','assets/game/enemySpritesheet.png',50,50,32);
         game.load.image('extraLife','assets/game/extralife.png');
         game.load.spritesheet("harts","assets/game/life.png",180,50,4);
         game.load.spritesheet("laser","assets/game/laser.png",50,20,2);
@@ -51,12 +57,6 @@ var PreloadState = {
 
         //LEVEL 5
         game.load.tilemap('level5', 'assets/json/level5.json', null, Phaser.Tilemap.TILED_JSON);
-
-        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
-        game.scale.pageAlignHorizontally = true;
-        game.scale.pageAlignVertically = true;
-        game.scale.parentIsWindow = true;
-        game.scale.refresh();
     },
     create: function() {
         game.state.start("menu");
