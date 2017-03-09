@@ -78,6 +78,7 @@ var LEVEL_5 = {
         extraLife = game.add.group();
         extraLife.enableBody=true;
         extraLife.create(55,400,"extraLife");
+        game.physics.arcade.enable(extraLife);
 
         // STATES
         currentstate="level5";
