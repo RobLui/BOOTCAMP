@@ -56,7 +56,7 @@ var LEVEL_3 = {
         nextState="finished";
 
         // MAP
-        map = game.add.tilemap('level4');
+        map = game.add.tilemap('level3');
         map.addTilesetImage('tileset', 'tileset');
         layer = map.createLayer('Tilelaag 1');
         layer.resizeWorld();
