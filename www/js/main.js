@@ -56,7 +56,7 @@ function Decreasehealth()
       game.state.start(currentstate);
     }
   }
-  navigator.vibrate(1000);
+  window.navigator.vibrate(1000);
 }
 
 // ENEMYHIT
