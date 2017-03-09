@@ -56,8 +56,7 @@ var LEVEL_5 = {
         game.physics.arcade.enable(enemy3);
 
         // EXTRA LIFE
-        // extraLife = game.add.group();
-        extraLife = game.add.sprite(55,100,"extraLife");
+        extraLife = game.add.sprite(305,510,"extraLife");
         game.physics.arcade.enable(extraLife);
         extraLife.enableBody=true;
 
@@ -152,7 +151,6 @@ var LEVEL_5 = {
       game.physics.arcade.overlap(bal,activator1,this.MoveWall1,null,this);
       game.physics.arcade.overlap(bal,activator2,this.MoveWall2,null,this);
       this.EnemyTween();
-      // console.log(extraLife);
     },
 
 
