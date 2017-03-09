@@ -32,8 +32,26 @@ var LEVEL_5 = {
         holes.create(105,605,"hole");
         holes.create(305,455,"hole");
 
+        //ENEMY
+        enemy1 = game.add.sprite(250, 250, 'enemy');
+        walk1 = enemy1.animations.add('walk1');
+        enemy1.animations.play('walk1', 30, true);
+        game.physics.arcade.enable(enemy1);
+
+        enemy2 = game.add.sprite(150, 50, 'enemy');
+        walk2 = enemy2.animations.add('walk2');
+        enemy2.animations.play('walk2', 30, true);
+        game.physics.arcade.enable(enemy2);
+
+        enemy3 = game.add.sprite(500, 500, 'enemy');
+        walk3 = enemy3.animations.add('walk3');
+        enemy3.animations.play('walk3', 30, true);
+        game.physics.arcade.enable(enemy3);
 
 
+        extraLife = game.add.group();
+        extraLife.enableBody=true;
+        extraLife.create(305,505,"extraLife");
 
         // BAL A.K.A. PLAYER
         bal = game.add.sprite(50, 50, "bal");
@@ -70,7 +88,27 @@ var LEVEL_5 = {
         //HEALTH
         life=game.add.sprite(220, 0, "harts");
     },
+    EnemyTween:function()
+    {
+      if(enemy1.body.position.x <= 250)
+          enemy1.body.velocity.x += 100;
 
+      if(enemy1.body.position.x >= 490)
+         enemy1.body.velocity.x -= 5;
+
+      if(enemy2.body.position.y <= 100)
+          enemy2.body.velocity.y += 5;
+
+      if(enemy2.body.position.y >= 150)
+          enemy2.body.velocity.y -= 5;
+
+      if(enemy3.body.position.x >= 500)
+          enemy3.body.velocity.x -= 100;
+
+      if(enemy3.body.position.x <= 400)
+          enemy3.body.velocity.x += 100;
+
+    },
     // UPDATE
     update: function()
     {
@@ -89,5 +127,14 @@ var LEVEL_5 = {
       // HEALTH
       game.physics.arcade.overlap(bal, extraLife, AddLife, null, this);
       life.frame = health;
-    }
+      this.EnemyTween();
+    },
+    MoveWall1: function()
+    {
+        if(checkifWallisOpen1==false)
+        {
+            tweenWall = game.add.tween(movingwall1).to({y: 650}, 1000, Phaser.Easing.Linear.None,true, 0,0, false);
+            checkifWallisOpen1=true;
+        }
+    },
 };
