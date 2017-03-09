@@ -95,10 +95,10 @@ var LEVEL_3 = {
       game.physics.arcade.overlap(bal, winningHole, Wingame, null, this);
       // HEALTH
       game.physics.arcade.overlap(bal, extraLife, AddLife, null, this);
-      //ACTIVATOR
+      // ACTIVATOR
       game.physics.arcade.overlap(bal,activator1,this.MoveWall1,null,this);
       game.physics.arcade.overlap(bal,activator2,this.MoveWall2,null,this);
-
+// console.log()
       life.frame = health;
   },
     MoveWall1: function()
