@@ -56,10 +56,10 @@ var LEVEL_5 = {
         game.physics.arcade.enable(enemy3);
 
         // EXTRA LIFE
-        extraLife = game.add.group();
-        extraLife.enableBody=true;
-        extraLife.create(55,100,"extraLife");
+        // extraLife = game.add.group();
+        extraLife = game.add.sprite(55,100,"extraLife");
         game.physics.arcade.enable(extraLife);
+        extraLife.enableBody=true;
 
         // BAL A.K.A. PLAYER
         bal = game.add.sprite(50, 50, "bal");
