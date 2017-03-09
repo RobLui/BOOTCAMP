@@ -61,10 +61,12 @@ var LEVEL_3 = {
         movingwall1 = game.add.sprite(400, 250, "movingWall");
         movingwall1.enableBody=true;
         game.physics.arcade.enable(movingwall1);
+        movingwall1.body.immovable=true;
 
         movingwall2 = game.add.sprite(400, 600, "movingWall");
         movingwall2.enableBody=true;
         game.physics.arcade.enable(movingwall2);
+        movingwall2.body.immovable=true;
         // CURSORS
         cursors = game.input.keyboard.createCursorKeys();
 
