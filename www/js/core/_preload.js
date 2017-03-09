@@ -19,6 +19,7 @@ var PreloadState = {
         game.load.image('activateWall','assets/activateWall.png');
         game.load.image('movingWall','assets/movingWall.png');
         game.load.image('enemy','assets/enemy.png');
+        game.load.image('extraLife','assets/extralife.png');
         game.load.spritesheet("harts","assets/life.png",180,50,4);
         game.load.spritesheet("laser","assets/laser.png",50,20,2);
 

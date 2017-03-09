@@ -27,6 +27,10 @@ var speed = 15;
 
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
+function fixFallthrough(){
+  game.physics.arcade.TILE_BIAS = 40;
+}
+
 // DEVICE ORIENTATION
 function HandleOrientation(e)
 {

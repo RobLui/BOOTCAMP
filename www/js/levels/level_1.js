@@ -42,6 +42,8 @@ var LEVEL_1 = {
 
         // CURSORS
         cursors = game.input.keyboard.createCursorKeys();
+
+        fixFallthrough();
     },
 
     // UPDATE

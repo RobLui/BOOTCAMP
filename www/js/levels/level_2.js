@@ -39,6 +39,7 @@ var LEVEL_2 = {
         extraLife.enableBody=true;
         extraLife.create(55,400,"extraLife");
 
+
         // STATES
         currentstate="level2";
         nextState="intro_lvl3";
@@ -55,6 +56,8 @@ var LEVEL_2 = {
 
         //HEALTH
         life=game.add.sprite(220, 0, "harts");
+
+        fixFallthrough();
     },
 
     // UPDATE
