@@ -93,7 +93,7 @@ function Holehit(bal,hole)
     game.state.start(currentstate);
 }
 
-// HOLEHIT
+// EXTRA LIFE
 function AddLife(bal,extraLife)
 {
   if (elapsedTime > waitingTime && health < 3)
