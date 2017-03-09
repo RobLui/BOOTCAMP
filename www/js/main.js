@@ -94,7 +94,7 @@ function Holehit(bal,hole)
 }
 
 // EXTRA LIFE
-function AddLife(extraLife,bal)
+function AddLife(bal,extraLife)
 {
   if (elapsedTime > waitingTime && health < 3)
   {
