@@ -58,8 +58,6 @@ var LEVEL_2 = {
     // UPDATE
     update: function()
     {
-      // CURSOR MOVEMENT
-      CursorMovement();
       // TIMER
       TimeChecker();
       // BOUNCE WALLS

@@ -118,27 +118,6 @@ function EnemyTween()
       enemy.body.velocity.y -= 50;
 }
 
-// CURSOR MOVEMENT
-function CursorMovement()
-{
-  if (cursors.up.isDown)
-  {
-    bal.body.velocity.y = -300;
-  }
-  else if (cursors.down.isDown)
-  {
-    bal.body.velocity.y = +300;
-  }
-  else if (cursors.left.isDown)
-  {
-    bal.body.velocity.x = -300;
-  }
-  else if (cursors.right.isDown)
-  {
-    bal.body.velocity.x = +300;
-  }
-}
-
 // ------------------------------------------------------ ADDING STATES ------------------------------------------------------
 
 // CORE STATES

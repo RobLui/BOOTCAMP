@@ -24,7 +24,6 @@ var PreloadState = {
         game.load.image('tileset','assets/game/tileset.png');
         game.load.image("bal", "assets/game/bal.png");
         game.load.image('hole','assets/game/hole.png');
-        game.load.image('arrow','assets/game/arrow.png');    //UNUSED
         game.load.image('winningHole','assets/game/winningHole.png');
         game.load.image('activateWall','assets/game/activateWall.png');
         game.load.image('movingWall','assets/game/movingWall.png');
@@ -41,7 +40,6 @@ var PreloadState = {
         game.load.image("intro_lvl3", "assets/intros/intro_lvl3.png");
         game.load.image("intro_lvl4", "assets/intros/intro_lvl4.png");
         game.load.image("intro_lvl5", "assets/intros/intro_lvl5.png");
-
 
         //LEVEL 1
         game.load.tilemap('level1', 'assets/json/level1.json', null, Phaser.Tilemap.TILED_JSON);

@@ -59,10 +59,10 @@ var LEVEL_5 = {
         enemy3.animations.play('walk3', 30, true);
         game.physics.arcade.enable(enemy3);
 
-
         extraLife = game.add.group();
         extraLife.enableBody=true;
         extraLife.create(305,505,"extraLife");
+        game.physics.arcade.enable(extraLife)
 
         // BAL A.K.A. PLAYER
         bal = game.add.sprite(50, 50, "bal");
@@ -133,8 +133,6 @@ var LEVEL_5 = {
     // UPDATE
     update: function()
     {
-      // CURSOR MOVEMENT
-      CursorMovement();
       // TIMER
       TimeChecker();
       // BOUNCE WALLS
@@ -156,11 +154,11 @@ var LEVEL_5 = {
       game.physics.arcade.overlap(bal, enemy1, Enemyhit, null, this);
       game.physics.arcade.overlap(bal, enemy2, Enemyhit, null, this);
       game.physics.arcade.overlap(bal, enemy3, Enemyhit, null, this);
+      game.physics.arcade.overlap(extraLife, bal, AddLife, null, this);
 
       game.physics.arcade.overlap(bal,activator1,this.MoveWall1,null,this);
       game.physics.arcade.overlap(bal,activator2,this.MoveWall2,null,this);
       this.EnemyTween();
-      game.physics.arcade.overlap(bal, extraLife, AddLife, null, this);
     },
     // HEALTH
     MoveWall1: function()

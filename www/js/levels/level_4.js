@@ -104,8 +104,6 @@ var LEVEL_4 = {
     // UPDATE
     update: function()
     {
-      // CURSOR MOVEMENT
-      CursorMovement();
       // TIMECHECKER
       TimeChecker();
       // BOUNCE WALLS

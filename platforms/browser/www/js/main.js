@@ -43,7 +43,6 @@ function TimeChecker()
 {
   var currentTime = game.time.time;
   elapsedTime = game.time.elapsedSecondsSince(lastEventTrackedTime);
-  // console.log(elapsedTime);
 }
 
 // DECREASE HEALTH
@@ -51,13 +50,12 @@ function Decreasehealth()
 {
   if (elapsedTime > waitingTime ) {
     health--;
-    // window.navigator.vibrate(1000);
     if (health == death) {
       health = maxHealth;
       game.state.start(currentstate);
     }
     if (game.device.vibration) {
-          window.navigator.vibrate(1000);
+          window.navigator.vibrate(500);
       }
   }
 }
@@ -75,7 +73,6 @@ function Laserhit(bal,laser)
   if(laser.animations.frame==0)
   {
     Decreasehealth();
-    //Elapsed time (seconds) since the last event tracked
     lastEventTrackedTime = game.time.time;
   }
 }
@@ -92,11 +89,8 @@ function Wingame(bal,winningHole)
 // HOLEHIT
 function Holehit(bal,hole)
 {
-  // if ((bal.body.position.x + 12.5) == (hole.body.position.x + 12.5) || (bal.body.position.y - 12.5) == (hole.body.position.y - 12.5))
-  // {
     health = maxHealth;
     game.state.start(currentstate);
-  //
 }
 
 // HOLEHIT
@@ -122,27 +116,6 @@ function EnemyTween()
 
   if(enemy.body.position.y >= 600)
       enemy.body.velocity.y -= 50;
-}
-
-// CURSOR MOVEMENT
-function CursorMovement()
-{
-  if (cursors.up.isDown)
-  {
-    bal.body.velocity.y = -300;
-  }
-  else if (cursors.down.isDown)
-  {
-    bal.body.velocity.y = +300;
-  }
-  else if (cursors.left.isDown)
-  {
-    bal.body.velocity.x = -300;
-  }
-  else if (cursors.right.isDown)
-  {
-    bal.body.velocity.x = +300;
-  }
 }
 
 // ------------------------------------------------------ ADDING STATES ------------------------------------------------------
