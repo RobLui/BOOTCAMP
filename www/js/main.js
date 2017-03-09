@@ -51,12 +51,12 @@ function Decreasehealth()
 {
   if (elapsedTime > waitingTime ) {
     health--;
+    window.navigator.vibrate(1000);
     if (health == death) {
       health = maxHealth;
       game.state.start(currentstate);
     }
   }
-  window.navigator.vibrate(1000);
 }
 
 // ENEMYHIT

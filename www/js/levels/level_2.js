@@ -34,11 +34,6 @@ var LEVEL_2 = {
         winningHole.anchor.y=0.5;
         winningHole.anchor.x=0.5;
 
-        // EXTRA LIFE
-        extraLife = game.add.group();
-        extraLife.enableBody=true;
-        extraLife.create(55,400,"extraLife");
-
 
         // STATES
         currentstate="level2";
