@@ -1,32 +1,29 @@
 var game = new Phaser.Game(600, 800, Phaser.CANVAS, "");
 
 // ------------------------------------------------------ GLOBALS ------------------------------------------------------
-var speed = 15;
+
+// HEALTH
 var health = 3;
+var maxHealth = 3;
+var extraLife;
+var death = 0;
 
-var map;
-var layer;
-var hole;
-
-var style;
-var timeText;
-var time;
-var timer;
-var timeString;
-
-var fpsString;
-var fpsText;
-
+// TIME
 var currentTime;
 var nextTime;
-
 var elapsedTime;
 var waitingTime = 1; // In seconde
-var death = 0;
 var lastEventTrackedTime = 0;
 
+// STATES
 var currentstate="";
 var nextState = "";
+
+var map;
+var hole;
+var layer;
+
+var speed = 15;
 
 // ------------------------------------------------------ FUNCTIONS ------------------------------------------------------
 
@@ -46,11 +43,12 @@ function TimeChecker()
 }
 
 // DECREASE HEALTH
-function Decreasehealth(){
+function Decreasehealth()
+{
   if (elapsedTime > waitingTime ) {
     health--;
     if (health == death) {
-      health = 3;
+      health = maxHealth;
       game.state.start(currentstate);
     }
   }
@@ -72,24 +70,40 @@ function Laserhit(bal,laser)
 {
   if(laser.animations.frame==0)
   {
-      Decreasehealth();
-      //Elapsed time (seconds) since the last event tracked
-      lastEventTrackedTime = game.time.time;
+    Decreasehealth();
+    //Elapsed time (seconds) since the last event tracked
+    lastEventTrackedTime = game.time.time;
   }
 }
 
 // WINGAME
-function Wingame()
+function Wingame(bal,winningHole)
 {
-  game.state.start(nextState);
-  health=3;
+    music = game.add.audio('win');
+    music.play();
+    health = maxHealth;
+    game.state.start(nextState);
 }
 
 // HOLEHIT
 function Holehit(bal,hole)
 {
-  health = 3;
-  game.state.start(currentstate);
+  // if ((bal.body.position.x + 12.5) == (hole.body.position.x + 12.5) || (bal.body.position.y - 12.5) == (hole.body.position.y - 12.5))
+  // {
+    health = maxHealth;
+    game.state.start(currentstate);
+  //
+}
+
+// HOLEHIT
+function AddLife(bal,extraLife)
+{
+  if (elapsedTime > waitingTime && health < 3)
+  {
+    health += 1;
+    lastEventTrackedTime = game.time.time;
+  }
+  extraLife.kill();
 }
 
 // ENEMYTWEEN & HEALTH
@@ -100,10 +114,10 @@ function EnemyTween()
       this.Decreasehealth();
 
   if(enemy.body.position.y <= 262.5)
-    enemy.body.velocity.y += 50;
+      enemy.body.velocity.y += 50;
 
   if(enemy.body.position.y >= 600)
-    enemy.body.velocity.y -= 50;
+      enemy.body.velocity.y -= 50;
 }
 
 // CURSOR MOVEMENT
@@ -128,12 +142,25 @@ function CursorMovement()
 }
 
 // ------------------------------------------------------ ADDING STATES ------------------------------------------------------
+
+// CORE STATES
 game.state.add('preload', this.PreloadState );
+game.state.add('menu', this.menuState);
+game.state.add('instructions', this.instructionState);
+game.state.add('finished', this.finishedState);
+
+// LEVELS
 game.state.add('level1', this.LEVEL_1);
 game.state.add('level2', this.LEVEL_2);
 game.state.add('level3', this.LEVEL_3);
-game.state.add('finished', this.finishedState);
-game.state.add('menu', this.menuState);
-game.state.add('instructions', this.instructionState);
+game.state.add('level4', this.LEVEL_4);
+game.state.add('level5', this.LEVEL_5);
 
+// INTROS
+game.state.add('intro_lvl2', this.intro_lvl2State);
+game.state.add('intro_lvl3', this.intro_lvl3State);
+game.state.add('intro_lvl4', this.intro_lvl4State);
+game.state.add('intro_lvl5', this.intro_lvl5State);
+
+// START
 game.state.start('preload');

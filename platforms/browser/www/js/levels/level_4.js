@@ -1,4 +1,4 @@
-var LEVEL_2 = {
+var LEVEL_3 = {
     create: function() {
         window.addEventListener("deviceorientation", HandleOrientation, true);
         game.add.image(1, 1, 'bg');
@@ -7,8 +7,10 @@ var LEVEL_2 = {
         // LASER
         lasers=game.add.group();
         lasers.enableBody=true;
-        lasers.create(400,500,"laser");
-        lasers.create(150,155,"laser");
+        lasers.create(250,115,"laser");
+        lasers.create(350,115,"laser");
+        lasers.create(100,415,"laser");
+        lasers.create(500,450,"laser");
         lasers.callAll('animations.add', 'animations', "blink",[0,1],1,true);
         lasers.callAll('animations.play', 'animations', 'blink');
         game.physics.arcade.enable(lasers);
@@ -16,10 +18,11 @@ var LEVEL_2 = {
         // HOLE / LOSING HOLE
         holes=game.add.group();
         holes.enableBody=true;
-        holes.create(55,710,"hole");
-        holes.create(155,300,"hole");
-        holes.create(405,255,"hole");
-        holes.create(355,155,"hole");
+        holes.create(55,455,"hole");
+        holes.create(155,155,"hole");
+        holes.create(505,55,"hole");
+        holes.create(505,205,"hole");
+        holes.create(205,355,"hole");
 
         // BAL A.K.A. PLAYER
         bal = game.add.sprite(50, 50, "bal");
@@ -28,7 +31,7 @@ var LEVEL_2 = {
         bal.body.collideWorldBounds = true;
 
         // HOLE / WINNING HOLE
-        winningHole   = game.add.sprite(525,725,"winningHole");
+        winningHole = game.add.sprite(525,725,"winningHole");
         winningHole.enableBody=true;
         game.physics.arcade.enable(winningHole);
         winningHole.anchor.y=0.5;
@@ -40,11 +43,11 @@ var LEVEL_2 = {
         extraLife.create(55,400,"extraLife");
 
         // STATES
-        currentstate="level2";
-        nextState="intro_lvl3";
+        currentstate="level3";
+        nextState="finished";
 
         // MAP
-        map = game.add.tilemap('level2');
+        map = game.add.tilemap('level3');
         map.addTilesetImage('tileset', 'tileset');
         layer = map.createLayer('Tilelaag 1');
         layer.resizeWorld();
