@@ -60,7 +60,6 @@ var PreloadState = {
         game.scale.forcePortrait = true;
         game.scale.parentIsWindow = true;
         game.scale.refresh();
-
     },
     create: function() {
         game.state.start("menu");
