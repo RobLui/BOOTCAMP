@@ -56,6 +56,9 @@ function Decreasehealth()
       health = maxHealth;
       game.state.start(currentstate);
     }
+    if (game.device.vibration) {
+          window.navigator.vibrate(100);
+      }
   }
 }
 
