@@ -57,7 +57,6 @@ var PreloadState = {
         game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;
-        game.scale.forcePortrait = true;
         game.scale.parentIsWindow = true;
         game.scale.refresh();
     },
