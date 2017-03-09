@@ -8,9 +8,9 @@
         RAMP
     </author>
     <content src="index.html" />
-    <!-- <preference name="SplashScreen" value="splash" />
+    <!-- <preference name="SplashScreen" value="splash" />-->
     <icon src="www/assets/logo250.png"   gap:platform="android"/>
-    <splash src="loading.png" platform="android" qualifier="hdpi" /> -->
+    <!-- <splash src="loading.png" platform="android" qualifier="hdpi" /> -->
     <preference name="orientation" value="portrait" />
     <!-- <plugin name="cordova-plugin-insomnia" /> -->
     <access origin="*" />
