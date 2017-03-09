@@ -12,8 +12,8 @@
     </author>
     <content src="index.html" />
     <!-- <preference name="SplashScreen" value="splash" />-->
-    <icon src="www/assets/logo/logo250.png"   gap:platform="android"/>
+    <icon src="www/assets/logo250.png"   gap:platform="android"/>
     <splash src="www/assets/menu/loading.png" platform="android" qualifier="hdpi" />
     <preference name="orientation" value="portrait" />
     <access origin="*" />
-</widget>²
+</widget>
