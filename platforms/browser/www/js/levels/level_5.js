@@ -12,8 +12,6 @@ var LEVEL_5 = {
         lasers.create(300,215,"laser");
         lasers.create(200,415,"laser");
         lasers.create(200,615,"laser");
-        lasers.create(335,350,"laser").angle = 90;
-        lasers.create(185,450,"laser").angle = 90;
 
         lasers.callAll('animations.add', 'animations', "blink",[0,1],1,true);
         lasers.callAll('animations.play', 'animations', 'blink');
