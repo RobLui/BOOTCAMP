@@ -1,4 +1,4 @@
-var LEVEL_4 = {
+var LEVEL_5 = {
     create: function() {
         window.addEventListener("deviceorientation", HandleOrientation, true);
         game.add.image(1, 1, 'bg');
@@ -43,8 +43,8 @@ var LEVEL_4 = {
         extraLife.create(55,400,"extraLife");
 
         // STATES
-        currentstate="level4";
-        nextState="intro_lvl5";
+        currentstate="level5";
+        nextState="finished";
 
         // MAP
         map = game.add.tilemap('level3');
