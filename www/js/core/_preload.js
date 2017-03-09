@@ -54,6 +54,13 @@ var PreloadState = {
         //LEVEL 5
         game.load.tilemap('level5', 'assets/json/level5.json', null, Phaser.Tilemap.TILED_JSON);
 
+        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
+        game.scale.pageAlignHorizontally = true;
+        game.scale.pageAlignVertically = true;
+        game.scale.forcePortrait = true;
+        game.scale.parentIsWindow = true;
+        game.scale.refresh();
+
     },
     create: function() {
         game.state.start("menu");
