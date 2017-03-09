@@ -58,6 +58,8 @@ var LEVEL_3 = {
 
         //HEALTH
         life=game.add.sprite(220, 0, "harts");
+
+        fixFallthrough();
     },
 
     // UPDATE
