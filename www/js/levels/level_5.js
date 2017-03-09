@@ -8,9 +8,7 @@ var LEVEL_5 = {
         lasers=game.add.group();
         lasers.enableBody=true;
         lasers.create(250,115,"laser");
-        lasers.create(350,115,"laser");
-        lasers.create(100,415,"laser");
-        lasers.create(500,450,"laser");
+        lasers.create(500,320,"laser");
         lasers.callAll('animations.add', 'animations', "blink",[0,1],1,true);
         lasers.callAll('animations.play', 'animations', 'blink');
         game.physics.arcade.enable(lasers);
@@ -18,7 +16,6 @@ var LEVEL_5 = {
         // HOLE / LOSING HOLE
         holes=game.add.group();
         holes.enableBody=true;
-        holes.create(55,455,"hole");
         holes.create(155,155,"hole");
         holes.create(505,55,"hole");
         holes.create(505,205,"hole");
