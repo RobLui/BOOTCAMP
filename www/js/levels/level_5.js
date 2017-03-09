@@ -7,8 +7,16 @@ var LEVEL_5 = {
         // LASER
         lasers=game.add.group();
         lasers.enableBody=true;
-        lasers.create(250,115,"laser");
-        lasers.create(500,320,"laser");
+        lasers.create(500,115,"laser");
+        lasers.create(500,215,"laser");
+        lasers.create(300,215,"laser");
+        lasers.create(200,415,"laser");
+        lasers.create(200,615,"laser");
+        lasers.create(335,350,"laser").angle = 90;
+        lasers.create(185,450,"laser").angle = 90;
+
+
+
         lasers.callAll('animations.add', 'animations', "blink",[0,1],1,true);
         lasers.callAll('animations.play', 'animations', 'blink');
         game.physics.arcade.enable(lasers);
@@ -16,10 +24,16 @@ var LEVEL_5 = {
         // HOLE / LOSING HOLE
         holes=game.add.group();
         holes.enableBody=true;
-        holes.create(155,155,"hole");
-        holes.create(505,55,"hole");
-        holes.create(505,205,"hole");
-        holes.create(205,355,"hole");
+        holes.create(455,155,"hole");
+        holes.create(355,155,"hole");
+        holes.create(55,455,"hole");
+        holes.create(55,505,"hole");
+        holes.create(55,705,"hole");
+        holes.create(105,605,"hole");
+        holes.create(305,455,"hole");
+
+
+
 
         // BAL A.K.A. PLAYER
         bal = game.add.sprite(50, 50, "bal");
@@ -44,7 +58,7 @@ var LEVEL_5 = {
         nextState="finished";
 
         // MAP
-        map = game.add.tilemap('level3');
+        map = game.add.tilemap('level5');
         map.addTilesetImage('tileset', 'tileset');
         layer = map.createLayer('Tilelaag 1');
         layer.resizeWorld();
