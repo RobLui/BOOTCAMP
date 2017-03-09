@@ -85,6 +85,8 @@ var LEVEL_5 = {
         layer.resizeWorld();
         map.setCollisionBetween(1, 12);
 
+        cursors = game.input.keyboard.createCursorKeys();
+
         //WALLS
         movingwall1 = game.add.sprite(300, 650, "movingWall");
         movingwall1.enableBody=true;
@@ -124,6 +126,7 @@ var LEVEL_5 = {
     // UPDATE
     update: function()
     {
+      CursorMovement();
       // TIMER
       TimeChecker();
       // BOUNCE WALLS
@@ -151,7 +154,8 @@ var LEVEL_5 = {
       this.EnemyTween();
       // console.log(extraLife);
     },
-    // HEALTH
+
+
     MoveWall1: function()
     {
         if(checkifWallisOpen1==false)
