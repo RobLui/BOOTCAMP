@@ -11,26 +11,27 @@ var PreloadState = {
         //MENU
         game.load.image('logo', 'assets/logo/logo.png');
         game.load.image('instructions', 'assets/menu/instructions.png');
-        game.load.image('play','assets/menu/play.png');
-        game.load.image('back','assets/menu/back.png');
-        game.load.image('what','assets/menu/what.png');
+        game.load.image('play', 'assets/menu/play.png');
+        game.load.image('back', 'assets/menu/back.png');
+        game.load.image('what', 'assets/menu/what.png');
 
         //CREDITS
         game.load.image('credits', 'assets/menu/credits.png');
-        game.load.image('menuBtn','assets/menu/menu_btn.png');
+        game.load.image('menuBtn', 'assets/menu/menu_btn.png');
 
         //OBJECTS
         game.load.image('bg', 'assets/game/bg.jpg');
-        game.load.image('tileset','assets/game/tileset.png');
+        game.load.image('tileset', 'assets/game/tileset.png');
         game.load.image("bal", "assets/game/bal.png");
-        game.load.image('hole','assets/game/hole.png');
-        game.load.image('winningHole','assets/game/winningHole.png');
-        game.load.image('activateWall','assets/game/activateWall.png');
-        game.load.image('movingWall','assets/game/movingWall.png');
-        game.load.spritesheet('enemy','assets/game/enemySpritesheet.png',50,50,32);
-        game.load.image('extraLife','assets/game/extralife.png');
-        game.load.spritesheet("harts","assets/game/life.png",180,50,4);
-        game.load.spritesheet("laser","assets/game/laser.png",50,20,2);
+        game.load.image('hole', 'assets/game/hole.png');
+        game.load.image('winningHole', 'assets/game/winningHole.png');
+        game.load.image('activateWall', 'assets/game/activateWall.png');
+        game.load.image('movingWall', 'assets/game/movingWall.png');
+        game.load.spritesheet('enemy', 'assets/game/enemySpritesheet.png', 50, 50, 32);
+        game.load.image('extraLife', 'assets/game/extralife.png');
+        game.load.spritesheet("harts", "assets/game/life.png", 180, 50, 4);
+        game.load.spritesheet("laser", "assets/game/laser.png", 50, 20, 2);
+        game.load.spritesheet("laserv", "assets/game/laserv.png", 18, 50, 2);
 
         //MUSIC
         game.load.audio('win', ['assets/music/win.wav']);
